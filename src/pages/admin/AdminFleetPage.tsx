@@ -77,7 +77,7 @@ export function AdminFleetPage() {
     return (
       <>
         <PageHeader title="Fleet / Vehicles" />
-        <button type="button" onClick={addVehicle} className="rounded-sm bg-brand-orange px-6 py-3 text-sm font-bold text-brand-white">
+        <button type="button" onClick={addVehicle} className="rounded-sm bg-brand-red px-6 py-3 text-sm font-bold text-brand-white">
           + Add First Vehicle
         </button>
         <SaveBar saving={saving} onSave={() => save('vehicles', vehicles)} />
@@ -89,7 +89,7 @@ export function AdminFleetPage() {
     <>
       <PageHeader title="Fleet / Vehicles" description="Manage your vehicle inventory. Upload photos from your computer." />
 
-      <div className="mb-6 rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-4">
+      <div className="mb-6 rounded-sm border border-brand-red/20 bg-brand-red/5 p-4">
         <p className="text-sm text-brand-grey">
           If the website still shows old sample vehicles, click below to save the latest fleet list to
           the database.
@@ -102,7 +102,7 @@ export function AdminFleetPage() {
         >
           {saving ? 'Updating...' : 'Update Fleet to Latest List'}
         </button>
-        {syncStatus && <p className="mt-2 text-sm font-semibold text-brand-orange">{syncStatus}</p>}
+        {syncStatus && <p className="mt-2 text-sm font-semibold text-brand-red">{syncStatus}</p>}
       </div>
 
       <div className="mb-6 flex flex-wrap items-center gap-2">
@@ -112,13 +112,13 @@ export function AdminFleetPage() {
             type="button"
             onClick={() => setActiveIndex(i)}
             className={`rounded-sm border px-3 py-1.5 text-sm font-medium ${
-              i === activeIndex ? 'border-brand-orange bg-brand-orange text-brand-white' : 'border-brand-grey/20'
+              i === activeIndex ? 'border-brand-red bg-brand-red text-brand-white' : 'border-brand-grey/20'
             }`}
           >
             {v.name}
           </button>
         ))}
-        <button type="button" onClick={addVehicle} className="rounded-sm border border-dashed border-brand-orange px-3 py-1.5 text-sm font-semibold text-brand-orange">
+        <button type="button" onClick={addVehicle} className="rounded-sm border border-dashed border-brand-red px-3 py-1.5 text-sm font-semibold text-brand-red">
           + Add Vehicle
         </button>
       </div>
@@ -158,7 +158,7 @@ export function AdminFleetPage() {
           <input type="checkbox" checked={current.featured ?? false} onChange={(e) => update('featured', e.target.checked)} />
           Show on homepage (Featured)
         </label>
-        <button type="button" onClick={removeVehicle} className="text-sm font-semibold text-brand-orange hover:underline">
+        <button type="button" onClick={removeVehicle} className="text-sm font-semibold text-brand-red hover:underline">
           Delete This Vehicle
         </button>
       </div>

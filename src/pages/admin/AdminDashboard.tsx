@@ -53,13 +53,13 @@ export function AdminDashboard() {
             to={stat.link}
             className="rounded-sm border border-brand-grey/10 p-5 transition-shadow hover:shadow-md"
           >
-            <p className="text-3xl font-bold text-brand-orange">{stat.count}</p>
+            <p className="text-3xl font-bold text-brand-red">{stat.count}</p>
             <p className="mt-1 text-sm font-semibold text-brand-black">{stat.label}</p>
           </Link>
         ))}
       </div>
 
-      <div className="mt-8 rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-6">
+      <div className="mt-8 rounded-sm border border-brand-red/20 bg-brand-red/5 p-6">
         <h2 className="font-bold text-brand-black">First-Time Setup</h2>
         <p className="mt-2 text-sm text-brand-grey-light">
           If this is your first time using the admin panel, click below to load all default website
@@ -73,7 +73,7 @@ export function AdminDashboard() {
         >
           {initializing ? 'Initializing...' : 'Initialize Default Content'}
         </button>
-        {initStatus && <p className="mt-3 text-sm font-semibold text-brand-orange">{initStatus}</p>}
+        {initStatus && <p className="mt-3 text-sm font-semibold text-brand-red">{initStatus}</p>}
       </div>
     </>
   )

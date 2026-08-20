@@ -42,7 +42,7 @@ export function HomePage() {
                 key={item.title}
                 className="rounded-sm border border-brand-grey/10 bg-brand-white p-6 shadow-sm transition-shadow hover:shadow-md"
               >
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand-orange/10 text-brand-orange">
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand-red/10 text-brand-red">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -109,7 +109,7 @@ export function HomePage() {
           </div>
           <div className="flex items-center bg-brand-black p-8 sm:p-12 lg:p-16">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">
+              <span className="text-xs font-bold uppercase tracking-widest text-brand-red">
                 Insurance Replacement
               </span>
               <h2 className="mt-3 text-3xl font-bold text-brand-white sm:text-4xl">
@@ -120,16 +120,16 @@ export function HomePage() {
               </p>
               <ul className="mt-6 space-y-3 text-sm text-brand-white/70">
                 <li className="flex items-center gap-2">
-                  <span className="text-brand-orange">&#10003;</span> Quick rental requests
+                  <span className="text-brand-red">&#10003;</span> Quick rental requests
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-brand-orange">&#10003;</span> Flexible rental terms
+                  <span className="text-brand-red">&#10003;</span> Flexible rental terms
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-brand-orange">&#10003;</span> Insurance-related rental support
+                  <span className="text-brand-red">&#10003;</span> Insurance-related rental support
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-brand-orange">&#10003;</span> Direct billing process
+                  <span className="text-brand-red">&#10003;</span> Direct billing process
                 </li>
               </ul>
               <div className="mt-8">
@@ -167,7 +167,7 @@ export function HomePage() {
                   key={item}
                   className="rounded-sm border border-brand-white/10 bg-brand-white/5 p-6 text-center"
                 >
-                  <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-orange/20 text-brand-orange">
+                  <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-red/20 text-brand-red">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
@@ -199,7 +199,7 @@ export function HomePage() {
           <div className="absolute inset-0 bg-brand-black/75" />
         </div>
         <div className="section-padding container-wide relative text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">Luxury Rentals</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-red">Luxury Rentals</span>
           <h2 className="mt-3 text-3xl font-bold text-brand-white sm:text-4xl lg:text-5xl">
             {hp.luxuryTitle}
           </h2>
@@ -225,7 +225,7 @@ export function HomePage() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {howItWorks.map((step) => (
               <div key={step.step} className="text-center">
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-orange text-xl font-bold text-brand-white">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-red text-xl font-bold text-brand-white">
                   {step.step}
                 </div>
                 <h3 className="text-lg font-bold text-brand-black">{step.title}</h3>

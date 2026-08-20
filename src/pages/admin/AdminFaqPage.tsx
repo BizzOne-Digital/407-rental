@@ -26,12 +26,12 @@ export function AdminFaqPage() {
       <div className="mb-6 flex flex-wrap gap-2">
         {items.map((f, i) => (
           <button key={f.id} type="button" onClick={() => setActiveIndex(i)}
-            className={`rounded-sm border px-3 py-1.5 text-sm font-medium ${i === activeIndex ? 'border-brand-orange bg-brand-orange text-brand-white' : 'border-brand-grey/20'}`}>
+            className={`rounded-sm border px-3 py-1.5 text-sm font-medium ${i === activeIndex ? 'border-brand-red bg-brand-red text-brand-white' : 'border-brand-grey/20'}`}>
             Q{i + 1}
           </button>
         ))}
         <button type="button" onClick={() => { setItems((p) => [...p, emptyFaq()]); setActiveIndex(items.length) }}
-          className="rounded-sm border border-dashed border-brand-orange px-3 py-1.5 text-sm font-semibold text-brand-orange">+ Add</button>
+          className="rounded-sm border border-dashed border-brand-red px-3 py-1.5 text-sm font-semibold text-brand-red">+ Add</button>
       </div>
 
       {current && (
@@ -39,7 +39,7 @@ export function AdminFaqPage() {
           <Field label="Question"><TextInput value={current.question} onChange={(v) => update('question', v)} /></Field>
           <Field label="Answer"><TextArea value={current.answer} onChange={(v) => update('answer', v)} rows={5} /></Field>
           <button type="button" onClick={() => { if (confirm('Delete?')) { setItems((p) => p.filter((_, i) => i !== activeIndex)); setActiveIndex(0) } }}
-            className="text-sm font-semibold text-brand-orange hover:underline">Delete</button>
+            className="text-sm font-semibold text-brand-red hover:underline">Delete</button>
         </div>
       )}
 

@@ -50,8 +50,10 @@ export function Hero() {
 
       <div className="section-padding container-wide relative w-full pb-32">
         <div className="max-w-3xl animate-fade-in">
-          <span className="mb-4 inline-block text-xs font-bold uppercase tracking-widest text-brand-orange">
+          <span className="mb-4 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-brand-red">
+            <span className="brand-tagline-rule" aria-hidden="true" />
             {hero.badge}
+            <span className="brand-tagline-rule" aria-hidden="true" />
           </span>
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-brand-white sm:text-5xl lg:text-6xl">
             {hero.headline}

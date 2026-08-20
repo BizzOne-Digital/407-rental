@@ -91,7 +91,7 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-8 text-center" role="status">
+      <div className="rounded-sm border border-brand-red/20 bg-brand-red/5 p-8 text-center" role="status">
         <h3 className="text-xl font-bold text-brand-black">Message Sent</h3>
         <p className="mt-3 text-brand-grey-light">
           Thank you for contacting us. Your message has been sent to our team and we will get back
@@ -107,14 +107,14 @@ export function ContactForm() {
   const inputClass = (field: keyof ContactFormData) =>
     `w-full rounded-sm border bg-brand-white px-4 py-3 text-sm text-brand-black focus:outline-none ${
       errors[field]
-        ? 'border-brand-orange focus:border-brand-orange'
-        : 'border-brand-grey/20 focus:border-brand-orange'
+        ? 'border-brand-red focus:border-brand-red'
+        : 'border-brand-grey/20 focus:border-brand-red'
     }`
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
       {status === 'error' && (
-        <div className="rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-4 text-sm text-brand-grey" role="alert">
+        <div className="rounded-sm border border-brand-red/20 bg-brand-red/5 p-4 text-sm text-brand-grey" role="alert">
           Something went wrong. Please try again or call us directly.
         </div>
       )}
@@ -122,7 +122,7 @@ export function ContactForm() {
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label htmlFor="contact-name" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Full Name <span className="text-brand-orange">*</span>
+            Full Name <span className="text-brand-red">*</span>
           </label>
           <input
             type="text"
@@ -132,12 +132,12 @@ export function ContactForm() {
             className={inputClass('name')}
             aria-invalid={!!errors.name}
           />
-          {errors.name && <p className="mt-1 text-sm text-brand-orange" role="alert">{errors.name}</p>}
+          {errors.name && <p className="mt-1 text-sm text-brand-red" role="alert">{errors.name}</p>}
         </div>
 
         <div>
           <label htmlFor="contact-phone" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Phone Number <span className="text-brand-orange">*</span>
+            Phone Number <span className="text-brand-red">*</span>
           </label>
           <input
             type="tel"
@@ -147,12 +147,12 @@ export function ContactForm() {
             className={inputClass('phone')}
             aria-invalid={!!errors.phone}
           />
-          {errors.phone && <p className="mt-1 text-sm text-brand-orange" role="alert">{errors.phone}</p>}
+          {errors.phone && <p className="mt-1 text-sm text-brand-red" role="alert">{errors.phone}</p>}
         </div>
 
         <div>
           <label htmlFor="contact-email" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Email Address <span className="text-brand-orange">*</span>
+            Email Address <span className="text-brand-red">*</span>
           </label>
           <input
             type="email"
@@ -162,12 +162,12 @@ export function ContactForm() {
             className={inputClass('email')}
             aria-invalid={!!errors.email}
           />
-          {errors.email && <p className="mt-1 text-sm text-brand-orange" role="alert">{errors.email}</p>}
+          {errors.email && <p className="mt-1 text-sm text-brand-red" role="alert">{errors.email}</p>}
         </div>
 
         <div>
           <label htmlFor="contact-rental-type" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Type of Rental <span className="text-brand-orange">*</span>
+            Type of Rental <span className="text-brand-red">*</span>
           </label>
           <select
             id="contact-rental-type"
@@ -184,7 +184,7 @@ export function ContactForm() {
             ))}
           </select>
           {errors.rentalType && (
-            <p className="mt-1 text-sm text-brand-orange" role="alert">{errors.rentalType}</p>
+            <p className="mt-1 text-sm text-brand-red" role="alert">{errors.rentalType}</p>
           )}
         </div>
 
@@ -208,7 +208,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="contact-message" className="mb-2 block text-sm font-semibold text-brand-grey">
-          Message <span className="text-brand-orange">*</span>
+          Message <span className="text-brand-red">*</span>
         </label>
         <textarea
           id="contact-message"
@@ -218,7 +218,7 @@ export function ContactForm() {
           className={inputClass('message')}
           aria-invalid={!!errors.message}
         />
-        {errors.message && <p className="mt-1 text-sm text-brand-orange" role="alert">{errors.message}</p>}
+        {errors.message && <p className="mt-1 text-sm text-brand-red" role="alert">{errors.message}</p>}
       </div>
 
       <Button type="submit" size="lg" fullWidth disabled={status === 'submitting'}>

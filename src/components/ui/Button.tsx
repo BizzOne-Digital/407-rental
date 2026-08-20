@@ -35,15 +35,15 @@ type ButtonProps = ButtonAsButton | ButtonAsLink | ButtonAsRouterLink
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-brand-orange text-brand-white hover:bg-brand-orange/90 border border-brand-orange shadow-sm',
+    'bg-brand-red text-brand-white hover:bg-brand-red-dark border border-brand-red shadow-sm shadow-brand-red/20',
   secondary:
     'bg-brand-black text-brand-white hover:bg-brand-grey border border-brand-black',
   outline:
     'bg-transparent text-brand-black border border-brand-black hover:bg-brand-black hover:text-brand-white',
   ghost:
-    'bg-transparent text-brand-grey hover:text-brand-orange border border-transparent',
+    'bg-transparent text-brand-grey hover:text-brand-red border border-transparent',
   white:
-    'bg-brand-white text-brand-black hover:bg-brand-grey-lighter border border-brand-white',
+    'bg-brand-white text-brand-black hover:bg-brand-silver-light border border-brand-white',
 }
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -61,7 +61,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center gap-2 rounded-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange disabled:cursor-not-allowed disabled:opacity-50'
+    'inline-flex items-center justify-center gap-2 rounded-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red disabled:cursor-not-allowed disabled:opacity-50'
 
   const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${fullWidth ? 'w-full' : ''} ${className}`
 

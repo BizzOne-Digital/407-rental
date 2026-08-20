@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  /* 407 Auto Rentals brand palette */
-  --color-brand-orange: #F58220;
-  --color-brand-black: #000000;
+  /* 407 RENTALS — logo palette (red, silver chrome, black, white) */
+  --color-brand-red: #E31E24;
+  --color-brand-red-dark: #B8181D;
+  --color-brand-silver: #B8BEC8;
+  --color-brand-silver-light: #E4E7EC;
+  --color-brand-black: #0A0A0A;
   --color-brand-white: #FFFFFF;
-  --color-brand-grey: #333333;
+  --color-brand-grey: #2A2A2A;
+  --color-brand-grey-light: #6B7280;
+  --color-brand-grey-lighter: #F3F4F6;
 
-  /* Derived tints — built only from the brand palette above */
-  --color-brand-grey-light: color-mix(in srgb, var(--color-brand-grey) 65%, var(--color-brand-white));
-  --color-brand-grey-lighter: color-mix(in srgb, var(--color-brand-grey) 6%, var(--color-brand-white));
+  /* Derived tints */
+  --color-brand-red-light: color-mix(in srgb, var(--color-brand-red) 10%, var(--color-brand-white));
+  --color-brand-red-muted: color-mix(in srgb, var(--color-brand-red) 18%, transparent);
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
@@ -38,7 +43,12 @@
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-brand-orange;
+    @apply outline-2 outline-offset-2 outline-brand-red;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-brand-red) 30%, var(--color-brand-white));
+    color: var(--color-brand-black);
   }
 }
 
@@ -49,6 +59,14 @@
 
   .container-wide {
     @apply mx-auto max-w-7xl;
+  }
+
+  .brand-accent-bar {
+    @apply h-1 w-12 bg-brand-red;
+  }
+
+  .brand-tagline-rule {
+    @apply h-px w-8 bg-brand-red;
   }
 
   .animate-fade-in {

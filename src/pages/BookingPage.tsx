@@ -36,7 +36,7 @@ export function BookingPage() {
           <p className="mt-4 max-w-2xl text-lg text-brand-white/80">
             Submit your rental request and our team will contact you to confirm availability and details.
             For immediate assistance, call{' '}
-            <a href={site.phoneHref} className="font-semibold text-brand-orange hover:underline">
+            <a href={site.phoneHref} className="font-semibold text-brand-red hover:underline">
               {site.phone}
             </a>
             .

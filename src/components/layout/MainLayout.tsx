@@ -7,7 +7,7 @@ export function MainLayout() {
     <>
      
       <Header />
-      <main className="min-h-screen pt-[64px]">
+      <main className="min-h-screen pt-[76px] sm:pt-[88px]">
         <Outlet />
       </main>
       <Footer />

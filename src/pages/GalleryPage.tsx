@@ -53,7 +53,7 @@ export function GalleryPage() {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-black/80 to-transparent p-4">
-                  <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">
+                  <span className="text-xs font-bold uppercase tracking-widest text-brand-red">
                     {image.category}
                   </span>
                   <p className="text-sm font-semibold text-brand-white">{image.title}</p>

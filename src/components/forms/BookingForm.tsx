@@ -143,9 +143,9 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
 
   if (status === 'success') {
     return (
-      <div className="rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-8 text-center" role="status">
-        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-brand-orange/10">
-          <svg className="h-8 w-8 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <div className="rounded-sm border border-brand-red/20 bg-brand-red/5 p-8 text-center" role="status">
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-brand-red/10">
+          <svg className="h-8 w-8 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
@@ -169,22 +169,22 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
   const inputClass = (field: keyof BookingFormData) =>
     `w-full rounded-sm border bg-brand-white px-4 py-3 text-sm text-brand-black focus:outline-none ${
       errors[field]
-        ? 'border-brand-orange focus:border-brand-orange'
-        : 'border-brand-grey/20 focus:border-brand-orange'
+        ? 'border-brand-red focus:border-brand-red'
+        : 'border-brand-grey/20 focus:border-brand-red'
     }`
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
       {selectedVehicleName && (
-        <div className="rounded-sm border border-brand-orange/30 bg-brand-orange/5 p-4">
+        <div className="rounded-sm border border-brand-red/30 bg-brand-red/5 p-4">
           <p className="text-sm font-semibold text-brand-black">
-            You&apos;re requesting: <span className="text-brand-orange">{selectedVehicleName}</span>
+            You&apos;re requesting: <span className="text-brand-red">{selectedVehicleName}</span>
           </p>
         </div>
       )}
 
       {status === 'error' && (
-        <div className="rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-4 text-sm text-brand-grey" role="alert">
+        <div className="rounded-sm border border-brand-red/20 bg-brand-red/5 p-4 text-sm text-brand-grey" role="alert">
           Something went wrong. Please try again or call us directly.
         </div>
       )}
@@ -192,7 +192,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="fullName" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Full Name <span className="text-brand-orange">*</span>
+            Full Name <span className="text-brand-red">*</span>
           </label>
           <input
             type="text"
@@ -204,7 +204,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             aria-describedby={errors.fullName ? 'fullName-error' : undefined}
           />
           {errors.fullName && (
-            <p id="fullName-error" className="mt-1 text-sm text-brand-orange" role="alert">
+            <p id="fullName-error" className="mt-1 text-sm text-brand-red" role="alert">
               {errors.fullName}
             </p>
           )}
@@ -212,7 +212,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
 
         <div>
           <label htmlFor="email" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Email <span className="text-brand-orange">*</span>
+            Email <span className="text-brand-red">*</span>
           </label>
           <input
             type="email"
@@ -224,7 +224,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             aria-describedby={errors.email ? 'email-error' : undefined}
           />
           {errors.email && (
-            <p id="email-error" className="mt-1 text-sm text-brand-orange" role="alert">
+            <p id="email-error" className="mt-1 text-sm text-brand-red" role="alert">
               {errors.email}
             </p>
           )}
@@ -232,7 +232,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
 
         <div>
           <label htmlFor="phone" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Phone <span className="text-brand-orange">*</span>
+            Phone <span className="text-brand-red">*</span>
           </label>
           <input
             type="tel"
@@ -244,7 +244,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             aria-describedby={errors.phone ? 'phone-error' : undefined}
           />
           {errors.phone && (
-            <p id="phone-error" className="mt-1 text-sm text-brand-orange" role="alert">
+            <p id="phone-error" className="mt-1 text-sm text-brand-red" role="alert">
               {errors.phone}
             </p>
           )}
@@ -252,7 +252,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
 
         <div>
           <label htmlFor="rentalType" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Rental Type <span className="text-brand-orange">*</span>
+            Rental Type <span className="text-brand-red">*</span>
           </label>
           <select
             id="rentalType"
@@ -268,7 +268,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             ))}
           </select>
           {errors.rentalType && (
-            <p className="mt-1 text-sm text-brand-orange" role="alert">
+            <p className="mt-1 text-sm text-brand-red" role="alert">
               {errors.rentalType}
             </p>
           )}
@@ -276,7 +276,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
 
         <div>
           <label htmlFor="vehicleCategory" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Vehicle Category <span className="text-brand-orange">*</span>
+            Vehicle Category <span className="text-brand-red">*</span>
           </label>
           <select
             id="vehicleCategory"
@@ -292,7 +292,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             ))}
           </select>
           {errors.vehicleCategory && (
-            <p className="mt-1 text-sm text-brand-orange" role="alert">
+            <p className="mt-1 text-sm text-brand-red" role="alert">
               {errors.vehicleCategory}
             </p>
           )}
@@ -300,7 +300,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
 
         <div>
           <label htmlFor="pickupDate" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Pickup Date <span className="text-brand-orange">*</span>
+            Pickup Date <span className="text-brand-red">*</span>
           </label>
           <input
             type="date"
@@ -312,7 +312,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             aria-invalid={!!errors.pickupDate}
           />
           {errors.pickupDate && (
-            <p className="mt-1 text-sm text-brand-orange" role="alert">
+            <p className="mt-1 text-sm text-brand-red" role="alert">
               {errors.pickupDate}
             </p>
           )}
@@ -320,7 +320,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
 
         <div>
           <label htmlFor="returnDate" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Return Date <span className="text-brand-orange">*</span>
+            Return Date <span className="text-brand-red">*</span>
           </label>
           <input
             type="date"
@@ -332,7 +332,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             aria-invalid={!!errors.returnDate}
           />
           {errors.returnDate && (
-            <p className="mt-1 text-sm text-brand-orange" role="alert">
+            <p className="mt-1 text-sm text-brand-red" role="alert">
               {errors.returnDate}
             </p>
           )}

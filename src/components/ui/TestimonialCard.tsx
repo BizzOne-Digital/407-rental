@@ -11,7 +11,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
         {Array.from({ length: 5 }).map((_, i) => (
           <svg
             key={i}
-            className={`h-4 w-4 ${i < testimonial.rating ? 'text-brand-orange' : 'text-brand-grey/20'}`}
+            className={`h-4 w-4 ${i < testimonial.rating ? 'text-brand-red' : 'text-brand-grey/20'}`}
             fill="currentColor"
             viewBox="0 0 20 20"
             aria-hidden="true"

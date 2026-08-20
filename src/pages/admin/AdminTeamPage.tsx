@@ -27,12 +27,12 @@ export function AdminTeamPage() {
       <div className="mb-6 flex flex-wrap gap-2">
         {items.map((t, i) => (
           <button key={t.id} type="button" onClick={() => setActiveIndex(i)}
-            className={`rounded-sm border px-3 py-1.5 text-sm font-medium ${i === activeIndex ? 'border-brand-orange bg-brand-orange text-brand-white' : 'border-brand-grey/20'}`}>
+            className={`rounded-sm border px-3 py-1.5 text-sm font-medium ${i === activeIndex ? 'border-brand-red bg-brand-red text-brand-white' : 'border-brand-grey/20'}`}>
             {t.name || `Member ${i + 1}`}
           </button>
         ))}
         <button type="button" onClick={() => { setItems((p) => [...p, emptyMember()]); setActiveIndex(items.length) }}
-          className="rounded-sm border border-dashed border-brand-orange px-3 py-1.5 text-sm font-semibold text-brand-orange">+ Add</button>
+          className="rounded-sm border border-dashed border-brand-red px-3 py-1.5 text-sm font-semibold text-brand-red">+ Add</button>
       </div>
 
       {current && (
@@ -42,7 +42,7 @@ export function AdminTeamPage() {
           <Field label="Role"><TextInput value={current.role} onChange={(v) => update('role', v)} /></Field>
           <Field label="Bio"><TextArea value={current.bio} onChange={(v) => update('bio', v)} rows={3} /></Field>
           <button type="button" onClick={() => { if (confirm('Delete?')) { setItems((p) => p.filter((_, i) => i !== activeIndex)); setActiveIndex(0) } }}
-            className="text-sm font-semibold text-brand-orange hover:underline">Delete</button>
+            className="text-sm font-semibold text-brand-red hover:underline">Delete</button>
         </div>
       )}
 

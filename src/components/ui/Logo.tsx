@@ -7,18 +7,18 @@ interface LogoProps {
 }
 
 const sizeClasses = {
-  header: 'h-14 w-auto max-w-[300px] object-contain object-[center_15%]',
-  footer: 'h-16 w-auto max-w-[340px] object-contain object-[center_15%]',
-  large: 'h-20 w-auto max-w-[420px] object-contain object-[center_15%]',
+  header: 'h-16 w-auto max-w-[360px] sm:h-20 sm:max-w-[460px] object-contain object-left',
+  footer: 'h-20 w-auto max-w-[440px] object-contain object-center',
+  large: 'h-24 w-auto max-w-[560px] sm:h-28 object-contain object-center',
 } as const
 
 export function Logo({ className = '', size = 'header' }: LogoProps) {
   return (
-    <Link to="/" className={`group block ${className}`} aria-label={`${SITE.name} - Home`}>
+    <Link to="/" className={`group block shrink-0 ${className}`} aria-label={`${SITE.name} - Home`}>
       <img
         src="/logo.png?v=2"
         alt={SITE.name}
-        className={`${sizeClasses[size]} transition-opacity group-hover:opacity-90`}
+        className={`${sizeClasses[size]} rounded-sm transition-opacity group-hover:opacity-90`}
       />
     </Link>
   )

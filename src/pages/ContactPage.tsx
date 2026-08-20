@@ -32,7 +32,7 @@ export function ContactPage() {
 
               <div className="mt-6 space-y-5">
                 <div>
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-brand-orange">Address</h3>
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-brand-red">Address</h3>
                   <address className="mt-1 not-italic text-brand-grey-light">
                     {contact.location}
                     <br />
@@ -43,17 +43,17 @@ export function ContactPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-brand-orange">Phone</h3>
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-brand-red">Phone</h3>
                   <div className="mt-1 space-y-1">
                     <a
                       href={contact.phoneHref}
-                      className="block text-lg font-semibold text-brand-black hover:text-brand-orange"
+                      className="block text-lg font-semibold text-brand-black hover:text-brand-red"
                     >
                       {contact.phone}
                     </a>
                     <a
                       href={contact.phoneSecondaryHref}
-                      className="block text-lg font-semibold text-brand-black hover:text-brand-orange"
+                      className="block text-lg font-semibold text-brand-black hover:text-brand-red"
                     >
                       {contact.phoneSecondary}
                     </a>
@@ -61,46 +61,46 @@ export function ContactPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-brand-orange">Email</h3>
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-brand-red">Email</h3>
                   <a
                     href={contact.emailHref}
-                    className="mt-1 block text-lg text-brand-black hover:text-brand-orange"
+                    className="mt-1 block text-lg text-brand-black hover:text-brand-red"
                   >
                     {contact.email}
                   </a>
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-brand-orange">
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-brand-red">
                     Business Hours
                   </h3>
                   <p className="mt-1 text-brand-grey-light">{contact.businessHours}</p>
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-brand-orange">
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-brand-red">
                     Social Media
                   </h3>
                   <a
                     href={contact.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-1 block text-brand-grey-light hover:text-brand-orange"
+                    className="mt-1 block text-brand-grey-light hover:text-brand-red"
                   >
                     Instagram: {contact.instagram}
                   </a>
                 </div>
               </div>
 
-              <div className="mt-8 rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-5">
-                <h3 className="text-sm font-bold uppercase tracking-widest text-brand-orange">
+              <div className="mt-8 rounded-sm border border-brand-red/20 bg-brand-red/5 p-5">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-brand-red">
                   Emergency / After-Hours Contact
                 </h3>
                 <p className="mt-2 text-sm text-brand-grey-light">
                   For urgent rental assistance outside business hours, please call{' '}
                   <a
                     href={contact.emergencyPhoneHref}
-                    className="font-semibold text-brand-black hover:text-brand-orange"
+                    className="font-semibold text-brand-black hover:text-brand-red"
                   >
                     {contact.emergencyPhone}
                   </a>
@@ -134,7 +134,7 @@ export function ContactPage() {
                     href={contact.mapsLinkUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-semibold text-brand-orange hover:underline"
+                    className="text-sm font-semibold text-brand-red hover:underline"
                   >
                     Open in Google Maps
                   </a>

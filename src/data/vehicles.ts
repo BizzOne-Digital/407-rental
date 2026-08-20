@@ -1,4 +1,5 @@
 import type { VehicleCategory } from './site'
+import { getVehicleImage, VEHICLE_IMAGES } from './vehicle-images'
 
 export interface Vehicle {
   id: string
@@ -17,31 +18,12 @@ export interface Vehicle {
 
 type VehicleCategoryValue = Exclude<VehicleCategory, 'No Preference'>
 
-const IMAGES = {
-  sedan: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80',
-  luxury: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80',
-  suv: 'https://images.unsplash.com/photo-1519641471654-76ce88757da1?w=800&q=80',
-  electric: 'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&q=80',
-  truck: 'https://images.unsplash.com/photo-1532547009778-b920afe43641?w=800&q=80',
-} as const
-
 function vehicle(
   id: string,
   name: string,
   category: VehicleCategoryValue,
   overrides: Partial<Omit<Vehicle, 'id' | 'name' | 'category'>> = {},
 ): Vehicle {
-  const image =
-    category === 'Pickup Truck'
-      ? IMAGES.truck
-      : category === 'Hybrid'
-        ? IMAGES.electric
-        : category === 'Luxury'
-          ? IMAGES.luxury
-          : category === 'SUV'
-            ? IMAGES.suv
-            : IMAGES.sedan
-
   return {
     id,
     name,
@@ -52,17 +34,25 @@ function vehicle(
     transmission: 'Automatic',
     fuelType: category === 'Hybrid' ? 'Electric/Hybrid' : 'Gasoline',
     pricePlaceholder: 'Contact for pricing',
-    image,
+    image: getVehicleImage(id),
     imageAlt: `${name} available for rental at 407 Auto Rentals`,
     featured: false,
     ...overrides,
   }
 }
 
-export const FLEET_DATA_VERSION = 2
+export const FLEET_DATA_VERSION = 5
+
+const FLEET_SIZE = 33
 
 export function isLegacyFleet(list: Vehicle[]): boolean {
-  return list.some((v) => v.id.startsWith('demo-') || /sample/i.test(v.name))
+  if (list.some((v) => v.id.startsWith('demo-') || /sample/i.test(v.name))) return true
+  if (list.length !== FLEET_SIZE) return true
+
+  return list.some((v) => {
+    const expected = VEHICLE_IMAGES[v.id]
+    return !expected || v.image !== expected
+  })
 }
 
 export const vehicles: Vehicle[] = [

@@ -31,11 +31,11 @@ export function FAQAccordion({ items, limit }: FAQAccordionProps) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(item.id)}
-                className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-semibold text-brand-black transition-colors hover:text-brand-orange"
+                className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-semibold text-brand-black transition-colors hover:text-brand-red"
               >
                 <span>{item.question}</span>
                 <span
-                  className={`flex h-6 w-6 shrink-0 items-center justify-center text-brand-orange transition-transform duration-200 ${
+                  className={`flex h-6 w-6 shrink-0 items-center justify-center text-brand-red transition-transform duration-200 ${
                     isOpen ? 'rotate-45' : ''
                   }`}
                   aria-hidden="true"

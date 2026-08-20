@@ -45,7 +45,7 @@ export function TeamPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="font-bold text-brand-black">{member.name}</h3>
-                  <p className="text-sm font-semibold text-brand-orange">{member.role}</p>
+                  <p className="text-sm font-semibold text-brand-red">{member.role}</p>
                   <p className="mt-3 text-sm leading-relaxed text-brand-grey-light">{member.bio}</p>
                   {member.isDemo && (
                     <span className="mt-3 inline-block rounded-sm bg-brand-grey-lighter px-2 py-0.5 text-xs font-medium text-brand-grey-light">

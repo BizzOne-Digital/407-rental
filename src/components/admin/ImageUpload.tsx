@@ -50,7 +50,7 @@ export function ImageUpload({ value, onChange, folder, label = 'Image' }: ImageU
           type="button"
           onClick={() => inputRef.current?.click()}
           disabled={uploading}
-          className="rounded-sm border border-brand-orange bg-brand-orange px-4 py-2 text-sm font-semibold text-brand-white transition-colors hover:bg-brand-orange/90 disabled:opacity-50"
+          className="rounded-sm border border-brand-red bg-brand-red px-4 py-2 text-sm font-semibold text-brand-white transition-colors hover:bg-brand-red/90 disabled:opacity-50"
         >
           {uploading ? 'Uploading...' : value ? 'Replace Image' : 'Upload from Computer'}
         </button>
@@ -59,7 +59,7 @@ export function ImageUpload({ value, onChange, folder, label = 'Image' }: ImageU
           <button
             type="button"
             onClick={() => onChange('')}
-            className="rounded-sm border border-brand-grey/20 px-4 py-2 text-sm font-semibold text-brand-grey hover:border-red-300 hover:text-brand-orange"
+            className="rounded-sm border border-brand-grey/20 px-4 py-2 text-sm font-semibold text-brand-grey hover:border-red-300 hover:text-brand-red"
           >
             Remove
           </button>
@@ -85,11 +85,11 @@ export function ImageUpload({ value, onChange, folder, label = 'Image' }: ImageU
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder="https://..."
-          className="mt-1 w-full rounded-sm border border-brand-grey/20 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none"
+          className="mt-1 w-full rounded-sm border border-brand-grey/20 px-3 py-2 text-sm focus:border-brand-red focus:outline-none"
         />
       </div>
 
-      {error && <p className="mt-2 text-sm text-brand-orange">{error}</p>}
+      {error && <p className="mt-2 text-sm text-brand-red">{error}</p>}
     </div>
   )
 }

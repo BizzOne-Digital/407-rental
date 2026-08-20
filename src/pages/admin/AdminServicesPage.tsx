@@ -38,12 +38,12 @@ export function AdminServicesPage() {
       <div className="mb-6 flex flex-wrap gap-2">
         {services.map((s, i) => (
           <button key={s.id} type="button" onClick={() => setActiveIndex(i)}
-            className={`rounded-sm border px-3 py-1.5 text-sm font-medium ${i === activeIndex ? 'border-brand-orange bg-brand-orange text-brand-white' : 'border-brand-grey/20'}`}>
+            className={`rounded-sm border px-3 py-1.5 text-sm font-medium ${i === activeIndex ? 'border-brand-red bg-brand-red text-brand-white' : 'border-brand-grey/20'}`}>
             {s.title}
           </button>
         ))}
         <button type="button" onClick={() => { setServices((p) => [...p, emptyService()]); setActiveIndex(services.length) }}
-          className="rounded-sm border border-dashed border-brand-orange px-3 py-1.5 text-sm font-semibold text-brand-orange">+ Add</button>
+          className="rounded-sm border border-dashed border-brand-red px-3 py-1.5 text-sm font-semibold text-brand-red">+ Add</button>
       </div>
 
       {current && (
@@ -63,7 +63,7 @@ export function AdminServicesPage() {
             Featured on homepage
           </label>
           <button type="button" onClick={() => { if (confirm('Delete?')) { setServices((p) => p.filter((_, i) => i !== activeIndex)); setActiveIndex(0) } }}
-            className="text-sm font-semibold text-brand-orange hover:underline">Delete</button>
+            className="text-sm font-semibold text-brand-red hover:underline">Delete</button>
         </div>
       )}
 

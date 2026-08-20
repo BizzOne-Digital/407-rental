@@ -16,10 +16,11 @@ export function SectionHeading({
   return (
     <div className={`mb-12 ${align === 'center' ? 'text-center' : 'text-left'}`}>
       {badge && (
-        <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-brand-orange">
+        <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-brand-red">
           {badge}
         </span>
       )}
+      <div className={`brand-accent-bar mb-4 ${align === 'center' ? 'mx-auto' : ''}`} aria-hidden="true" />
       <h2
         className={`text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl ${
           light ? 'text-brand-white' : 'text-brand-black'

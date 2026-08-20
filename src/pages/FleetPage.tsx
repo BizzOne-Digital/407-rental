@@ -79,7 +79,7 @@ export function FleetPage() {
             </div>
           )}
 
-          <div className="mt-12 rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-6 text-center">
+          <div className="mt-12 rounded-sm border border-brand-red/20 bg-brand-red/5 p-6 text-center">
             <p className="text-sm text-brand-grey">
               <strong>Note:</strong> Availability and pricing may vary. Contact our team for current
               rates and to confirm your preferred vehicle.

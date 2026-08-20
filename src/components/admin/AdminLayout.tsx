@@ -30,7 +30,7 @@ export function AdminLayout() {
       <aside className="fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-brand-grey/10 bg-brand-black">
         <div className="border-b border-brand-white/10 p-4">
           <Logo />
-          <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-brand-orange">
+          <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-brand-red">
             Admin Panel
           </p>
         </div>
@@ -44,7 +44,7 @@ export function AdminLayout() {
               className={({ isActive }) =>
                 `mb-1 block rounded-sm px-3 py-2.5 text-sm font-medium transition-colors ${
                   isActive
-                    ? 'bg-brand-orange text-brand-white'
+                    ? 'bg-brand-red text-brand-white'
                     : 'text-brand-white/70 hover:bg-brand-white/5 hover:text-brand-white'
                 }`
               }

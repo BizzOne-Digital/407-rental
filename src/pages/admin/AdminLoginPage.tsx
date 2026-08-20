@@ -50,14 +50,14 @@ export function AdminLoginPage() {
       <div className="w-full max-w-md rounded-sm bg-brand-white p-8 shadow-2xl">
         <div className="mb-8 text-center">
           <Logo size="large" className="mx-auto" />
-          <p className="mt-4 text-sm font-semibold uppercase tracking-widest text-brand-orange">
+          <p className="mt-4 text-sm font-semibold uppercase tracking-widest text-brand-red">
             Admin Login
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           {error && (
-            <div className="rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-3 text-sm text-brand-grey">
+            <div className="rounded-sm border border-brand-red/20 bg-brand-red/5 p-3 text-sm text-brand-grey">
               {error}
             </div>
           )}
@@ -73,7 +73,7 @@ export function AdminLoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               required
               autoComplete="email"
-              className="w-full rounded-sm border border-brand-grey/20 px-4 py-3 text-sm focus:border-brand-orange focus:outline-none"
+              className="w-full rounded-sm border border-brand-grey/20 px-4 py-3 text-sm focus:border-brand-red focus:outline-none"
             />
           </div>
 
@@ -88,21 +88,21 @@ export function AdminLoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
               autoComplete="current-password"
-              className="w-full rounded-sm border border-brand-grey/20 px-4 py-3 text-sm focus:border-brand-orange focus:outline-none"
+              className="w-full rounded-sm border border-brand-grey/20 px-4 py-3 text-sm focus:border-brand-red focus:outline-none"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-sm bg-brand-orange py-3 text-sm font-bold text-brand-white transition-colors hover:bg-brand-orange/90 disabled:opacity-50"
+            className="w-full rounded-sm bg-brand-red py-3 text-sm font-bold text-brand-white transition-colors hover:bg-brand-red/90 disabled:opacity-50"
           >
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
 
         <p className="mt-6 text-center text-xs text-brand-grey-light">
-          <a href="/" className="text-brand-orange hover:underline">← Back to website</a>
+          <a href="/" className="text-brand-red hover:underline">← Back to website</a>
         </p>
       </div>
     </div>

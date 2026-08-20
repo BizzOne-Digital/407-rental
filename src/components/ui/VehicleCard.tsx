@@ -16,7 +16,7 @@ export function VehicleCard({ vehicle }: VehicleCardProps) {
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <span className="absolute top-3 right-3 rounded-sm bg-brand-orange px-2 py-1 text-xs font-bold text-brand-white">
+        <span className="absolute top-3 right-3 rounded-sm bg-brand-red px-2 py-1 text-xs font-bold text-brand-white">
           {vehicle.category}
         </span>
       </div>
