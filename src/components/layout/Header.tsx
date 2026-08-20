@@ -32,11 +32,11 @@ export function Header() {
     <header
       className={`fixed top-0 right-0 left-0 z-50 border-b-4 border-brand-red transition-all duration-300 ${
         scrolled
-          ? 'bg-brand-white/95 shadow-md backdrop-blur-md'
-          : 'bg-brand-white shadow-sm'
+          ? 'bg-brand-black/95 shadow-lg shadow-black/40 backdrop-blur-md'
+          : 'bg-brand-black'
       }`}
     >
-      <div className="container-wide flex items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
+      <div className="container-wide flex items-center justify-between gap-4 px-4 py-2.5 sm:px-6 lg:px-8">
         <Logo />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
@@ -45,7 +45,7 @@ export function Header() {
               key={link.href}
               to={link.href}
               className={`rounded-sm px-3 py-2 text-sm font-semibold transition-colors hover:text-brand-red ${
-                location.pathname === link.href ? 'text-brand-red' : 'text-brand-grey'
+                location.pathname === link.href ? 'text-brand-red' : 'text-brand-white/90'
               }`}
             >
               {link.label}
@@ -56,7 +56,7 @@ export function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href={site.phoneHref}
-            className="text-sm font-bold text-brand-black transition-colors hover:text-brand-red"
+            className="text-sm font-bold text-brand-silver transition-colors hover:text-brand-red"
           >
             {site.phone}
           </a>
@@ -67,7 +67,7 @@ export function Header() {
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-sm text-brand-grey lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-sm text-brand-white lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
@@ -87,7 +87,7 @@ export function Header() {
       <div
         id="mobile-menu"
         className={`overflow-hidden transition-all duration-300 lg:hidden ${
-          mobileOpen ? 'max-h-screen border-t border-brand-grey/10 bg-brand-white' : 'max-h-0'
+          mobileOpen ? 'max-h-screen border-t border-brand-white/10 bg-brand-black' : 'max-h-0'
         }`}
         aria-hidden={!mobileOpen}
       >
@@ -96,14 +96,14 @@ export function Header() {
             <Link
               key={link.href}
               to={link.href}
-              className={`block rounded-sm px-4 py-3 text-base font-semibold transition-colors hover:bg-brand-red-light hover:text-brand-red ${
-                location.pathname === link.href ? 'text-brand-red' : 'text-brand-grey'
+              className={`block rounded-sm px-4 py-3 text-base font-semibold transition-colors hover:bg-brand-red/10 hover:text-brand-red ${
+                location.pathname === link.href ? 'text-brand-red' : 'text-brand-white/90'
               }`}
             >
               {link.label}
             </Link>
           ))}
-          <div className="space-y-3 border-t border-brand-grey/10 pt-4">
+          <div className="space-y-3 border-t border-brand-white/10 pt-4">
             <a
               href={site.phoneHref}
               className="block px-4 py-2 text-base font-bold text-brand-red"
