@@ -25,7 +25,7 @@ export function QuickRentalWidget() {
       <div className="container-wide">
         <form
           onSubmit={handleSubmit}
-          className="rounded-sm border border-brand-grey/10 bg-white p-6 shadow-2xl sm:p-8"
+          className="rounded-sm border border-brand-grey/10 bg-brand-white p-6 shadow-2xl sm:p-8"
         >
           <h2 className="mb-6 text-xl font-bold text-brand-black sm:text-2xl">
             What type of rental do you need?
@@ -40,7 +40,7 @@ export function QuickRentalWidget() {
                 id="quick-rental-type"
                 value={rentalType}
                 onChange={(e) => setRentalType(e.target.value as RentalType)}
-                className="w-full rounded-sm border border-brand-grey/20 bg-white px-4 py-3 text-sm text-brand-black focus:border-brand-orange focus:outline-none"
+                className="w-full rounded-sm border border-brand-grey/20 bg-brand-white px-4 py-3 text-sm text-brand-black focus:border-brand-orange focus:outline-none"
               >
                 {RENTAL_TYPES.filter((t) => t !== 'Other').map((type) => (
                   <option key={type} value={type}>
@@ -58,7 +58,7 @@ export function QuickRentalWidget() {
                 id="quick-vehicle-category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value as VehicleCategory)}
-                className="w-full rounded-sm border border-brand-grey/20 bg-white px-4 py-3 text-sm text-brand-black focus:border-brand-orange focus:outline-none"
+                className="w-full rounded-sm border border-brand-grey/20 bg-brand-white px-4 py-3 text-sm text-brand-black focus:border-brand-orange focus:outline-none"
               >
                 {VEHICLE_CATEGORIES.map((cat) => (
                   <option key={cat} value={cat}>
@@ -78,7 +78,7 @@ export function QuickRentalWidget() {
                 value={pickupDate}
                 min={today}
                 onChange={(e) => setPickupDate(e.target.value)}
-                className="w-full rounded-sm border border-brand-grey/20 bg-white px-4 py-3 text-sm text-brand-black focus:border-brand-orange focus:outline-none"
+                className="w-full rounded-sm border border-brand-grey/20 bg-brand-white px-4 py-3 text-sm text-brand-black focus:border-brand-orange focus:outline-none"
               />
             </div>
 
@@ -92,7 +92,7 @@ export function QuickRentalWidget() {
                 value={returnDate}
                 min={pickupDate || today}
                 onChange={(e) => setReturnDate(e.target.value)}
-                className="w-full rounded-sm border border-brand-grey/20 bg-white px-4 py-3 text-sm text-brand-black focus:border-brand-orange focus:outline-none"
+                className="w-full rounded-sm border border-brand-grey/20 bg-brand-white px-4 py-3 text-sm text-brand-black focus:border-brand-orange focus:outline-none"
               />
             </div>
           </div>

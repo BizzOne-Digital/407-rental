@@ -21,7 +21,7 @@ export const faqs: FAQ[] = [
     id: 'faq-03',
     question: 'How quickly can I request a rental?',
     answer:
-      'You can submit a rental request at any time through our online booking form or by calling (343) 777-5555. Our team will respond as quickly as possible to review your request and discuss next steps.',
+      'You can submit a rental request at any time through our online booking form or by calling (416) 755-3723. Our team will respond as quickly as possible to review your request and discuss next steps.',
   },
   {
     id: 'faq-04',
@@ -45,7 +45,7 @@ export const faqs: FAQ[] = [
     id: 'faq-07',
     question: 'What types of vehicles are available?',
     answer:
-      'Our fleet includes economy cars, hybrid vehicles, SUVs, luxury vehicles, and pickup trucks. Browse our fleet page to see sample vehicles and submit a request for the category that best fits your needs.',
+      'Our fleet includes economy cars, hybrid vehicles, SUVs, luxury vehicles, and pickup trucks. Browse our fleet page to see available vehicles and submit a request for the category that best fits your needs.',
   },
   {
     id: 'faq-08',
@@ -87,18 +87,18 @@ export const faqs: FAQ[] = [
     id: 'faq-14',
     question: 'Do you serve the GTA?',
     answer:
-      'Yes, 407 Auto Rentals is based in Scarborough, Ontario and proudly serves the entire Greater Toronto Area, including Toronto and surrounding communities.',
+      'Yes, 407 Auto Rentals is located at 128 Manville Rd, Unit 15 and proudly serves the entire Greater Toronto Area, including Toronto and surrounding communities.',
   },
   {
     id: 'faq-15',
     question: 'How do I request a vehicle?',
     answer:
-      'You can request a vehicle by filling out our online booking form at /booking, using the quick rental widget on our homepage, or by calling (343) 777-5555. Our team will contact you to confirm availability and rental details.',
+      'You can request a vehicle by filling out our online booking form at /booking, using the quick rental widget on our homepage, or by calling (416) 755-3723. Our team will contact you to confirm availability and rental details.',
   },
   {
     id: 'faq-16',
     question: 'How do I contact 407 Auto Rentals?',
     answer:
-      'You can reach us by phone at (343) 777-5555, email at 407autorentals@gmail.com, or through our contact form. We are located in Scarborough, Ontario and serve the Greater Toronto Area.',
+      'You can reach us by phone at (416) 755-3723, email at 407autorentals@gmail.com, or through our contact form. We are located at 128 Manville Rd, Unit 15 and serve the Greater Toronto Area.',
   },
 ]

@@ -21,8 +21,8 @@ export function CategoryFilter<T extends string>({
           aria-pressed={active === category}
           className={`rounded-sm border px-4 py-2 text-sm font-semibold transition-all duration-200 ${
             active === category
-              ? 'border-brand-orange bg-brand-orange text-white'
-              : 'border-brand-grey/20 bg-white text-brand-grey hover:border-brand-orange hover:text-brand-orange'
+              ? 'border-brand-orange bg-brand-orange text-brand-white'
+              : 'border-brand-grey/20 bg-brand-white text-brand-grey hover:border-brand-orange hover:text-brand-orange'
           }`}
         >
           {category}

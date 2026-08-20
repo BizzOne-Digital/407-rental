@@ -15,134 +15,173 @@ export interface Vehicle {
   featured?: boolean
 }
 
-// Demo/sample inventory — replace with actual fleet data when available
+type VehicleCategoryValue = Exclude<VehicleCategory, 'No Preference'>
+
+const IMAGES = {
+  sedan: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80',
+  luxury: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80',
+  suv: 'https://images.unsplash.com/photo-1519641471654-76ce88757da1?w=800&q=80',
+  electric: 'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&q=80',
+  truck: 'https://images.unsplash.com/photo-1532547009778-b920afe43641?w=800&q=80',
+} as const
+
+function vehicle(
+  id: string,
+  name: string,
+  category: VehicleCategoryValue,
+  overrides: Partial<Omit<Vehicle, 'id' | 'name' | 'category'>> = {},
+): Vehicle {
+  const image =
+    category === 'Pickup Truck'
+      ? IMAGES.truck
+      : category === 'Hybrid'
+        ? IMAGES.electric
+        : category === 'Luxury'
+          ? IMAGES.luxury
+          : category === 'SUV'
+            ? IMAGES.suv
+            : IMAGES.sedan
+
+  return {
+    id,
+    name,
+    category,
+    description: `Rent a ${name} from 407 Auto Rentals. Contact us for current availability and pricing.`,
+    features: ['Bluetooth', 'Backup Camera', 'Air Conditioning'],
+    seats: 5,
+    transmission: 'Automatic',
+    fuelType: category === 'Hybrid' ? 'Electric/Hybrid' : 'Gasoline',
+    pricePlaceholder: 'Contact for pricing',
+    image,
+    imageAlt: `${name} available for rental at 407 Auto Rentals`,
+    featured: false,
+    ...overrides,
+  }
+}
+
+export const FLEET_DATA_VERSION = 2
+
+export function isLegacyFleet(list: Vehicle[]): boolean {
+  return list.some((v) => v.id.startsWith('demo-') || /sample/i.test(v.name))
+}
+
 export const vehicles: Vehicle[] = [
-  {
-    id: 'demo-economy-01',
-    name: 'Economy Sedan',
-    category: 'Economy',
-    description: 'Efficient and affordable daily driver ideal for city commuting and insurance replacement needs.',
-    features: ['Fuel Efficient', 'Bluetooth', 'Backup Camera', 'Cruise Control'],
-    seats: 5,
-    transmission: 'Automatic',
-    fuelType: 'Gasoline',
-    pricePlaceholder: 'From $XX/day',
-    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80',
-    imageAlt: 'Sample economy sedan for rental demonstration',
+  // Cars & Sedans
+  vehicle('tesla-model-3', 'Tesla Model 3', 'Hybrid', {
+    fuelType: 'Electric',
+    features: ['All-Electric', 'Autopilot', 'Touchscreen Display', 'Fast Charging'],
     featured: true,
-  },
-  {
-    id: 'demo-economy-02',
-    name: 'Compact Car',
-    category: 'Economy',
-    description: 'Compact and easy to park, perfect for urban driving across the GTA.',
-    features: ['Compact Size', 'Apple CarPlay', 'USB Charging', 'Air Conditioning'],
-    seats: 5,
-    transmission: 'Automatic',
-    fuelType: 'Gasoline',
-    pricePlaceholder: 'From $XX/day',
-    image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80',
-    imageAlt: 'Sample compact car for rental demonstration',
-    featured: true,
-  },
-  {
-    id: 'demo-hybrid-01',
-    name: 'Hybrid Sedan',
-    category: 'Hybrid',
-    description: 'Eco-friendly hybrid option combining efficiency with comfortable daily driving.',
-    features: ['Hybrid Engine', 'Regenerative Braking', 'Lane Assist', 'Touchscreen Display'],
-    seats: 5,
-    transmission: 'Automatic',
-    fuelType: 'Hybrid',
-    pricePlaceholder: 'From $XX/day',
-    image: 'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&q=80',
-    imageAlt: 'Sample hybrid sedan for rental demonstration',
-    featured: true,
-  },
-  {
-    id: 'demo-suv-01',
-    name: 'Mid-Size SUV',
-    category: 'SUV',
-    description: 'Spacious SUV with ample cargo room for families and extended rentals.',
-    features: ['All-Wheel Drive', 'Spacious Interior', 'Roof Rails', 'Heated Seats'],
-    seats: 7,
-    transmission: 'Automatic',
-    fuelType: 'Gasoline',
-    pricePlaceholder: 'From $XX/day',
-    image: 'https://images.unsplash.com/photo-1519641471654-76ce88757da1?w=800&q=80',
-    imageAlt: 'Sample mid-size SUV for rental demonstration',
-    featured: true,
-  },
-  {
-    id: 'demo-suv-02',
-    name: 'Sample Crossover SUV',
-    category: 'SUV',
-    description: 'Versatile crossover blending comfort, visibility, and practical cargo space.',
-    features: ['Elevated Seating', 'Rear Camera', 'Keyless Entry', 'Dual-Zone Climate'],
-    seats: 5,
-    transmission: 'Automatic',
-    fuelType: 'Gasoline',
-    pricePlaceholder: 'From $XX/day',
-    image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80',
-    imageAlt: 'Sample crossover SUV for rental demonstration',
-    featured: false,
-  },
-  {
-    id: 'demo-luxury-01',
-    name: 'Luxury Sedan',
-    category: 'Luxury',
-    description: 'Premium sedan with refined interior and smooth performance for executive travel.',
+  }),
+  vehicle('mercedes-c-class', 'Mercedes-Benz C-Class', 'Luxury', {
     features: ['Leather Interior', 'Premium Audio', 'Navigation', 'Sunroof'],
-    seats: 5,
-    transmission: 'Automatic',
-    fuelType: 'Gasoline',
-    pricePlaceholder: 'From $XX/day',
-    image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80',
-    imageAlt: 'Sample luxury sedan for rental demonstration',
     featured: true,
-  },
-  {
-    id: 'demo-luxury-02',
-    name: 'Sample Premium SUV',
-    category: 'Luxury',
-    description: 'High-end SUV offering luxury comfort with commanding road presence.',
-    features: ['Premium Leather', 'Panoramic Roof', 'Adaptive Cruise', 'Premium Wheels'],
-    seats: 5,
-    transmission: 'Automatic',
-    fuelType: 'Gasoline',
-    pricePlaceholder: 'From $XX/day',
-    image: 'https://images.unsplash.com/photo-1606016159991-d8524d7d2123?w=800&q=80',
-    imageAlt: 'Sample premium SUV for rental demonstration',
-    featured: false,
-  },
-  {
-    id: 'demo-pickup-01',
-    name: 'Pickup Truck',
-    category: 'Pickup Truck',
-    description: 'Capable pickup truck for work, moving, and utility needs across the GTA.',
-    features: ['Towing Capacity', 'Bed Liner', '4x4 Available', 'Bluetooth'],
-    seats: 5,
-    transmission: 'Automatic',
-    fuelType: 'Gasoline',
-    pricePlaceholder: 'From $XX/day',
-    image: 'https://images.unsplash.com/photo-1532547009778-b920afe43641?w=800&q=80',
-    imageAlt: 'Sample pickup truck for rental demonstration',
+  }),
+  vehicle('toyota-corolla', 'Toyota Corolla', 'Economy', {
+    features: ['Fuel Efficient', 'Apple CarPlay', 'Safety Sense', 'Cruise Control'],
+  }),
+  vehicle('hyundai-elantra', 'Hyundai Elantra', 'Economy', {
+    features: ['Fuel Efficient', 'Bluetooth', 'Backup Camera', 'USB Charging'],
+  }),
+  vehicle('kia-k4', 'Kia K4', 'Economy', {
+    features: ['Modern Design', 'Touchscreen Display', 'Lane Keep Assist', 'Wireless Charging'],
+  }),
+  vehicle('cadillac-ct5', 'Cadillac CT5', 'Luxury', {
+    features: ['Leather Seats', 'Premium Audio', 'Head-Up Display', 'Adaptive Cruise'],
+  }),
+  vehicle('chevrolet-malibu', 'Chevrolet Malibu', 'Economy', {
+    features: ['Spacious Interior', 'Bluetooth', 'Rear Camera', 'Cruise Control'],
+  }),
+  vehicle('bmw-m340i', 'BMW M340i', 'Luxury', {
+    features: ['Performance Engine', 'Sport Suspension', 'Premium Interior', 'Navigation'],
     featured: true,
-  },
-  {
-    id: 'demo-hybrid-02',
-    name: 'Sample Hybrid Crossover',
-    category: 'Hybrid',
-    description: 'Fuel-efficient crossover hybrid with modern safety features and comfort.',
-    features: ['Hybrid AWD', 'Safety Suite', 'Wireless Charging', 'Power Liftgate'],
-    seats: 5,
-    transmission: 'Automatic',
-    fuelType: 'Hybrid',
-    pricePlaceholder: 'From $XX/day',
-    image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=800&q=80',
-    imageAlt: 'Sample hybrid crossover for rental demonstration',
-    featured: false,
-  },
+  }),
+  vehicle('bmw-330i', 'BMW 330i', 'Luxury', {
+    features: ['Turbocharged Engine', 'Leather Interior', 'iDrive System', 'Sunroof'],
+  }),
+  vehicle('honda-accord', 'Honda Accord', 'Economy', {
+    features: ['Reliable Performance', 'Honda Sensing', 'Apple CarPlay', 'Spacious Cabin'],
+  }),
+  vehicle('volkswagen-jetta', 'Volkswagen Jetta', 'Economy', {
+    features: ['Fuel Efficient', 'Compact Design', 'Touchscreen', 'Backup Camera'],
+  }),
+  vehicle('dodge-charger', 'Dodge Charger', 'Luxury', {
+    features: ['Powerful V6/V8', 'Sport Mode', 'Uconnect System', 'Spacious Interior'],
+  }),
+  vehicle('audi-a5', 'Audi A5', 'Luxury', {
+    features: ['Quattro AWD', 'Virtual Cockpit', 'Premium Interior', 'LED Headlights'],
+  }),
+
+  // SUVs & Crossovers
+  vehicle('tesla-model-y', 'Tesla Model Y', 'Hybrid', {
+    fuelType: 'Electric',
+    features: ['All-Electric', 'All-Wheel Drive', 'Panoramic Glass Roof', 'Autopilot'],
+    featured: true,
+  }),
+  vehicle('ford-escape', 'Ford Escape', 'SUV', {
+    features: ['Compact SUV', 'SYNC System', 'Rear Camera', 'Roof Rails'],
+  }),
+  vehicle('nissan-rogue', 'Nissan Rogue', 'SUV', {
+    features: ['ProPILOT Assist', 'Spacious Cargo', 'All-Wheel Drive', 'Apple CarPlay'],
+  }),
+  vehicle('toyota-highlander', 'Toyota Highlander', 'SUV', {
+    seats: 7,
+    features: ['Three-Row Seating', 'Toyota Safety Sense', 'All-Wheel Drive', 'Power Liftgate'],
+  }),
+  vehicle('toyota-rav4', 'Toyota RAV4', 'SUV', {
+    features: ['All-Wheel Drive', 'Toyota Safety Sense', 'Roof Rails', 'Apple CarPlay'],
+    featured: true,
+  }),
+  vehicle('toyota-venza', 'Toyota Venza', 'Hybrid', {
+    features: ['Hybrid AWD', 'Panoramic Roof', 'Safety Sense', 'Power Liftgate'],
+  }),
+  vehicle('toyota-c-hr', 'Toyota C-HR', 'Hybrid', {
+    features: ['Hybrid Engine', 'Distinctive Design', 'Safety Sense', 'Compact Size'],
+  }),
+  vehicle('honda-cr-v', 'Honda CR-V', 'SUV', {
+    features: ['Honda Sensing', 'Spacious Interior', 'All-Wheel Drive', 'Power Tailgate'],
+  }),
+  vehicle('volkswagen-atlas', 'Volkswagen Atlas', 'SUV', {
+    seats: 7,
+    features: ['Three-Row Seating', 'Digital Cockpit', 'All-Wheel Drive', 'Panoramic Roof'],
+  }),
+  vehicle('ford-explorer', 'Ford Explorer', 'SUV', {
+    seats: 7,
+    features: ['Three-Row Seating', 'SYNC 4', 'All-Wheel Drive', 'Power Liftgate'],
+  }),
+  vehicle('hyundai-tucson', 'Hyundai Tucson', 'SUV', {
+    features: ['Smart Cruise Control', 'Wireless Charging', 'All-Wheel Drive', 'Panoramic Roof'],
+  }),
+  vehicle('lexus-nx-300', 'Lexus NX 300', 'Luxury', {
+    features: ['Premium Interior', 'Lexus Safety System+', 'All-Wheel Drive', 'Navigation'],
+  }),
+  vehicle('range-rover-sport', 'Range Rover Sport', 'Luxury', {
+    features: ['Premium Leather', 'Terrain Response', 'All-Wheel Drive', 'Panoramic Roof'],
+    featured: true,
+  }),
+  vehicle('range-rover-evoque', 'Range Rover Evoque', 'Luxury', {
+    features: ['Compact Luxury SUV', 'All-Wheel Drive', 'Premium Audio', 'Touchscreen'],
+  }),
+  vehicle('porsche-macan', 'Porsche Macan', 'Luxury', {
+    features: ['Sport Performance', 'Premium Interior', 'All-Wheel Drive', 'Porsche Connect'],
+  }),
+  vehicle('jaguar-svr', 'Jaguar SVR', 'Luxury', {
+    features: ['Supercharged V8', 'Sport Exhaust', 'Premium Leather', 'All-Wheel Drive'],
+  }),
+  vehicle('chevrolet-trax', 'Chevrolet Trax', 'SUV', {
+    features: ['Compact SUV', 'Chevy Infotainment', 'Rear Camera', 'Roof Rails'],
+  }),
+
+  // Trucks
+  vehicle('ford-f-150', 'Ford F-150', 'Pickup Truck', {
+    features: ['Towing Capacity', 'Bed Liner', '4x4 Available', 'SYNC System'],
+    featured: true,
+  }),
+  vehicle('gmc-sierra', 'GMC Sierra', 'Pickup Truck', {
+    features: ['Towing Capacity', 'ProGrade Trailering', '4x4 Available', 'MultiPro Tailgate'],
+  }),
+  vehicle('chevrolet-silverado', 'Chevrolet Silverado', 'Pickup Truck', {
+    features: ['Towing Capacity', 'Bed Liner', '4x4 Available', 'Chevy Infotainment'],
+  }),
 ]
 
 export const FLEET_CATEGORIES = ['All', 'Economy', 'Hybrid', 'SUV', 'Luxury', 'Pickup Trucks'] as const

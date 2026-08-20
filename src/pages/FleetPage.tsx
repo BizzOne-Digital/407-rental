@@ -8,7 +8,7 @@ import { useContent } from '../context/ContentContext'
 import { FLEET_CATEGORIES, filterVehicles, type FleetCategory } from '../data/vehicles'
 
 export function FleetPage() {
-  const { content } = useContent()
+  const { content, loading } = useContent()
 
   useSeo({
     title: pageTitle('Vehicle Fleet'),
@@ -43,10 +43,10 @@ export function FleetPage() {
     <>
       <section className="bg-brand-black py-16">
         <div className="container-wide px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Our Vehicle Fleet</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
-            Explore our diverse fleet of rental vehicles. Sample inventory shown below — contact us for
-            current availability and pricing.
+          <h1 className="text-3xl font-bold text-brand-white sm:text-4xl lg:text-5xl">Our Vehicle Fleet</h1>
+          <p className="mt-4 max-w-2xl text-lg text-brand-white/80">
+            Explore our diverse fleet of rental vehicles. Contact us for current availability and
+            pricing.
           </p>
         </div>
       </section>
@@ -62,7 +62,9 @@ export function FleetPage() {
             />
           </div>
 
-          {filteredVehicles.length > 0 ? (
+          {loading ? (
+            <p className="py-16 text-center text-brand-grey-light">Loading fleet...</p>
+          ) : filteredVehicles.length > 0 ? (
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {filteredVehicles.map((vehicle) => (
                 <VehicleCard key={vehicle.id} vehicle={vehicle} />
@@ -79,8 +81,8 @@ export function FleetPage() {
 
           <div className="mt-12 rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-6 text-center">
             <p className="text-sm text-brand-grey">
-              <strong>Note:</strong> Vehicle inventory and pricing shown are sample placeholders. Contact
-              our team for current availability and rates.
+              <strong>Note:</strong> Availability and pricing may vary. Contact our team for current
+              rates and to confirm your preferred vehicle.
             </p>
             <Button to="/booking" className="mt-4" size="lg">
               Request a Vehicle

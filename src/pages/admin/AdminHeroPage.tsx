@@ -31,7 +31,13 @@ export function AdminHeroPage() {
       />
 
       <div className="space-y-5">
-        <ImageUpload value={form.image} onChange={(v) => update('image', v)} folder="hero" label="Hero Background Image" />
+        <ImageUpload value={form.image} onChange={(v) => update('image', v)} folder="hero" label="Hero Background Image (fallback poster)" />
+        <Field label="Hero Background Video URL (MP4 — replace with your own footage when ready)">
+          <TextInput value={form.video ?? ''} onChange={(v) => update('video', v)} placeholder="https://..." />
+        </Field>
+        <Field label="Video Poster URL (shown while video loads)">
+          <TextInput value={form.videoPoster ?? ''} onChange={(v) => update('videoPoster', v)} placeholder="https://..." />
+        </Field>
         <Field label="Location Badge">
           <TextInput value={form.badge} onChange={(v) => update('badge', v)} />
         </Field>

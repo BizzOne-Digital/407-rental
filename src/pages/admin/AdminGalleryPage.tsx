@@ -29,7 +29,7 @@ export function AdminGalleryPage() {
       <div className="mb-6 flex flex-wrap gap-2">
         {items.map((g, i) => (
           <button key={g.id} type="button" onClick={() => setActiveIndex(i)}
-            className={`rounded-sm border px-3 py-1.5 text-sm font-medium ${i === activeIndex ? 'border-brand-orange bg-brand-orange text-white' : 'border-brand-grey/20'}`}>
+            className={`rounded-sm border px-3 py-1.5 text-sm font-medium ${i === activeIndex ? 'border-brand-orange bg-brand-orange text-brand-white' : 'border-brand-grey/20'}`}>
             {g.title || `Image ${i + 1}`}
           </button>
         ))}
@@ -48,7 +48,7 @@ export function AdminGalleryPage() {
             </select>
           </Field>
           <button type="button" onClick={() => { if (confirm('Delete?')) { setItems((p) => p.filter((_, i) => i !== activeIndex)); setActiveIndex(0) } }}
-            className="text-sm font-semibold text-red-600 hover:underline">Delete</button>
+            className="text-sm font-semibold text-brand-orange hover:underline">Delete</button>
         </div>
       )}
 

@@ -12,7 +12,7 @@ export function AboutPage() {
   useSeo({
     title: pageTitle('About Us'),
     description:
-      'Learn about 407 Auto Rentals — a trusted vehicle rental company in Scarborough, Ontario serving the Greater Toronto Area with insurance replacement and retail rentals.',
+      'Learn about 407 Auto Rentals — a trusted vehicle rental company at 128 Manville Rd, Unit 15 serving the Greater Toronto Area with insurance replacement and retail rentals.',
   })
 
   return (
@@ -27,8 +27,8 @@ export function AboutPage() {
           />
         </div>
         <div className="container-wide relative px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">{about.heroTitle}</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">{about.heroSubtitle}</p>
+          <h1 className="text-3xl font-bold text-brand-white sm:text-4xl lg:text-5xl">{about.heroTitle}</h1>
+          <p className="mt-4 max-w-2xl text-lg text-brand-white/80">{about.heroSubtitle}</p>
         </div>
       </section>
 
@@ -83,7 +83,7 @@ export function AboutPage() {
                 desc: 'Dedicated support from request to return.',
               },
             ].map((item) => (
-              <div key={item.title} className="rounded-sm border border-brand-grey/10 bg-white p-8 text-center shadow-sm">
+              <div key={item.title} className="rounded-sm border border-brand-grey/10 bg-brand-white p-8 text-center shadow-sm">
                 <h3 className="text-lg font-bold text-brand-black">{item.title}</h3>
                 <p className="mt-3 text-sm text-brand-grey-light">{item.desc}</p>
               </div>
@@ -99,7 +99,7 @@ export function AboutPage() {
             subtitle="Specialized support for customers who need a replacement vehicle after an accident."
             light
           />
-          <p className="mx-auto max-w-3xl text-center text-white/70">
+          <p className="mx-auto max-w-3xl text-center text-brand-white/70">
             {about.insuranceExpertiseText}
           </p>
           <div className="mt-8 text-center">

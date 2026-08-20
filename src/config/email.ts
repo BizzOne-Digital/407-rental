@@ -19,8 +19,8 @@ export const EMAIL_CONFIG = {
   subjects: {
     booking: (customerName: string) =>
       `🚗 New Rental Request — ${customerName} | ${SITE.name}`,
-    contact: (subject: string) =>
-      `📩 Contact Inquiry — ${subject} | ${SITE.name}`,
+    contact: (name: string, rentalType: string) =>
+      `📩 Contact Inquiry — ${name} (${rentalType}) | ${SITE.name}`,
   },
   autoresponse: {
     booking: `Thank you for your rental request with ${SITE.name}.

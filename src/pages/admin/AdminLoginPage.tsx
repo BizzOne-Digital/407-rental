@@ -34,7 +34,7 @@ export function AdminLoginPage() {
   if (!isConfigured) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-brand-black p-8">
-        <div className="max-w-md rounded-sm bg-white p-8 text-center">
+        <div className="max-w-md rounded-sm bg-brand-white p-8 text-center">
           <h1 className="text-xl font-bold">Setup Required</h1>
           <p className="mt-3 text-sm text-brand-grey-light">
             Please configure Supabase in your <code>.env</code> file. See{' '}
@@ -47,9 +47,9 @@ export function AdminLoginPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-brand-black p-4">
-      <div className="w-full max-w-md rounded-sm bg-white p-8 shadow-2xl">
+      <div className="w-full max-w-md rounded-sm bg-brand-white p-8 shadow-2xl">
         <div className="mb-8 text-center">
-          <Logo className="justify-center" />
+          <Logo size="large" className="mx-auto" />
           <p className="mt-4 text-sm font-semibold uppercase tracking-widest text-brand-orange">
             Admin Login
           </p>
@@ -57,7 +57,7 @@ export function AdminLoginPage() {
 
         <form onSubmit={handleSubmit} className="space-y-5">
           {error && (
-            <div className="rounded-sm border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+            <div className="rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-3 text-sm text-brand-grey">
               {error}
             </div>
           )}
@@ -95,7 +95,7 @@ export function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-sm bg-brand-orange py-3 text-sm font-bold text-white transition-colors hover:bg-brand-orange/90 disabled:opacity-50"
+            className="w-full rounded-sm bg-brand-orange py-3 text-sm font-bold text-brand-white transition-colors hover:bg-brand-orange/90 disabled:opacity-50"
           >
             {loading ? 'Signing in...' : 'Sign In'}
           </button>

@@ -17,10 +17,10 @@ export function FAQPage() {
     <>
       <section className="bg-brand-black py-16">
         <div className="container-wide px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+          <h1 className="text-3xl font-bold text-brand-white sm:text-4xl lg:text-5xl">
             Frequently Asked Questions
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
+          <p className="mt-4 max-w-2xl text-lg text-brand-white/80">
             Find answers to common questions about our rental services, insurance replacement, and
             direct billing.
           </p>

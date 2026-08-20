@@ -16,8 +16,8 @@ export function TeamPage() {
     <>
       <section className="bg-brand-black py-16">
         <div className="container-wide px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Our Team</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
+          <h1 className="text-3xl font-bold text-brand-white sm:text-4xl lg:text-5xl">Our Team</h1>
+          <p className="mt-4 max-w-2xl text-lg text-brand-white/80">
             Demo team profiles shown below. Real team member information will be added when available.
           </p>
         </div>
@@ -33,7 +33,7 @@ export function TeamPage() {
             {teamMembers.map((member) => (
               <article
                 key={member.id}
-                className="overflow-hidden rounded-sm border border-brand-grey/10 bg-white shadow-sm"
+                className="overflow-hidden rounded-sm border border-brand-grey/10 bg-brand-white shadow-sm"
               >
                 <div className="aspect-square overflow-hidden">
                   <img

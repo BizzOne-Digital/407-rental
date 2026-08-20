@@ -109,21 +109,23 @@ export interface ContactEmailPayload {
   name: string
   email: string
   phone: string
-  subject: string
+  rentalType: string
+  preferredVehicle: string
   message: string
 }
 
 export async function sendContactEmail(data: ContactEmailPayload): Promise<void> {
   await postToFormSubmit({
-    _subject: EMAIL_CONFIG.subjects.contact(data.subject),
+    _subject: EMAIL_CONFIG.subjects.contact(data.name, data.rentalType),
     _replyto: data.email,
     _autoresponse: EMAIL_CONFIG.autoresponse.contact,
     email: data.email,
     'Form Type': 'Contact Inquiry',
-    Name: data.name,
+    'Full Name': data.name,
     Email: data.email,
-    Phone: data.phone || 'Not provided',
-    Subject: data.subject,
+    Phone: data.phone,
+    'Type of Rental': data.rentalType,
+    'Preferred Vehicle': data.preferredVehicle || 'Not specified',
     Message: data.message,
     'Submitted At': submittedAt(),
     'Company Website': EMAIL_CONFIG.companyName,

@@ -35,7 +35,7 @@ export function Header() {
       }`}
     >
       <div className="container-wide flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Logo variant="light" />
+        <Logo />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
           {NAV_LINKS.map((link) => (
@@ -43,7 +43,7 @@ export function Header() {
               key={link.href}
               to={link.href}
               className={`rounded-sm px-3 py-2 text-sm font-medium transition-colors hover:text-brand-orange ${
-                location.pathname === link.href ? 'text-brand-orange' : 'text-white/90'
+                location.pathname === link.href ? 'text-brand-orange' : 'text-brand-white/90'
               }`}
             >
               {link.label}
@@ -54,7 +54,7 @@ export function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href={site.phoneHref}
-            className="text-sm font-semibold text-white transition-colors hover:text-brand-orange"
+            className="text-sm font-semibold text-brand-white transition-colors hover:text-brand-orange"
           >
             {site.phone}
           </a>
@@ -65,7 +65,7 @@ export function Header() {
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-sm text-white lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-sm text-brand-white lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
@@ -85,7 +85,7 @@ export function Header() {
       <div
         id="mobile-menu"
         className={`overflow-hidden transition-all duration-300 lg:hidden ${
-          mobileOpen ? 'max-h-screen border-t border-white/10' : 'max-h-0'
+          mobileOpen ? 'max-h-screen border-t border-brand-white/10' : 'max-h-0'
         }`}
         aria-hidden={!mobileOpen}
       >
@@ -94,14 +94,14 @@ export function Header() {
             <Link
               key={link.href}
               to={link.href}
-              className={`block rounded-sm px-4 py-3 text-base font-medium transition-colors hover:bg-white/5 hover:text-brand-orange ${
-                location.pathname === link.href ? 'text-brand-orange' : 'text-white'
+              className={`block rounded-sm px-4 py-3 text-base font-medium transition-colors hover:bg-brand-white/5 hover:text-brand-orange ${
+                location.pathname === link.href ? 'text-brand-orange' : 'text-brand-white'
               }`}
             >
               {link.label}
             </Link>
           ))}
-          <div className="space-y-3 border-t border-white/10 pt-4">
+          <div className="space-y-3 border-t border-brand-white/10 pt-4">
             <a
               href={site.phoneHref}
               className="block px-4 py-2 text-base font-semibold text-brand-orange"

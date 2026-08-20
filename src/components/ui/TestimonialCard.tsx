@@ -6,7 +6,7 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <blockquote className="flex h-full flex-col rounded-sm border border-brand-grey/10 bg-white p-6 shadow-sm">
+    <blockquote className="flex h-full flex-col rounded-sm border border-brand-grey/10 bg-brand-white p-6 shadow-sm">
       <div className="mb-4 flex gap-1" aria-label={`${testimonial.rating} out of 5 stars`}>
         {Array.from({ length: 5 }).map((_, i) => (
           <svg

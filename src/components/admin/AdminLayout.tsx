@@ -28,8 +28,8 @@ export function AdminLayout() {
   return (
     <div className="flex min-h-screen bg-brand-grey-lighter">
       <aside className="fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-brand-grey/10 bg-brand-black">
-        <div className="border-b border-white/10 p-4">
-          <Logo variant="light" />
+        <div className="border-b border-brand-white/10 p-4">
+          <Logo />
           <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-brand-orange">
             Admin Panel
           </p>
@@ -44,8 +44,8 @@ export function AdminLayout() {
               className={({ isActive }) =>
                 `mb-1 block rounded-sm px-3 py-2.5 text-sm font-medium transition-colors ${
                   isActive
-                    ? 'bg-brand-orange text-white'
-                    : 'text-white/70 hover:bg-white/5 hover:text-white'
+                    ? 'bg-brand-orange text-brand-white'
+                    : 'text-brand-white/70 hover:bg-brand-white/5 hover:text-brand-white'
                 }`
               }
             >
@@ -54,21 +54,21 @@ export function AdminLayout() {
           ))}
         </nav>
 
-        <div className="border-t border-white/10 p-4">
-          <p className="truncate text-xs text-white/50">{user?.email}</p>
+        <div className="border-t border-brand-white/10 p-4">
+          <p className="truncate text-xs text-brand-white/50">{user?.email}</p>
           <div className="mt-3 flex flex-col gap-2">
             <a
               href="/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block rounded-sm border border-white/20 px-3 py-2 text-center text-xs font-semibold text-white hover:bg-white/5"
+              className="block rounded-sm border border-brand-white/20 px-3 py-2 text-center text-xs font-semibold text-brand-white hover:bg-brand-white/5"
             >
               View Website ↗
             </a>
             <button
               type="button"
               onClick={handleSignOut}
-              className="rounded-sm bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/20"
+              className="rounded-sm bg-brand-white/10 px-3 py-2 text-xs font-semibold text-brand-white hover:bg-brand-white/20"
             >
               Sign Out
             </button>
@@ -77,7 +77,7 @@ export function AdminLayout() {
       </aside>
 
       <main className="ml-64 flex-1 p-8">
-        <div className="mx-auto max-w-4xl rounded-sm border border-brand-grey/10 bg-white p-6 shadow-sm">
+        <div className="mx-auto max-w-4xl rounded-sm border border-brand-grey/10 bg-brand-white p-6 shadow-sm">
           <Outlet />
         </div>
       </main>

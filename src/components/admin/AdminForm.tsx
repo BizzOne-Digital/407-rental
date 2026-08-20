@@ -23,20 +23,20 @@ export function SaveBar({ onSave, saving = false, label = 'Save Changes' }: Save
   }
 
   return (
-    <div className="sticky bottom-0 z-10 -mx-6 -mb-6 mt-8 flex items-center justify-between border-t border-brand-grey/10 bg-white px-6 py-4 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+    <div className="sticky bottom-0 z-10 -mx-6 -mb-6 mt-8 flex items-center justify-between border-t border-brand-grey/10 bg-brand-white px-6 py-4 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
       <div>
         {status === 'success' && (
-          <span className="text-sm font-semibold text-green-600">✓ Saved successfully — live on website now</span>
+          <span className="text-sm font-semibold text-brand-orange">✓ Saved successfully — live on website now</span>
         )}
         {status === 'error' && (
-          <span className="text-sm font-semibold text-red-600">{errorMsg}</span>
+          <span className="text-sm font-semibold text-brand-orange">{errorMsg}</span>
         )}
       </div>
       <button
         type="button"
         onClick={handleSave}
         disabled={saving}
-        className="rounded-sm bg-brand-orange px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-orange/90 disabled:opacity-50"
+        className="rounded-sm bg-brand-orange px-8 py-3 text-sm font-bold text-brand-white transition-colors hover:bg-brand-orange/90 disabled:opacity-50"
       >
         {saving ? 'Saving...' : label}
       </button>

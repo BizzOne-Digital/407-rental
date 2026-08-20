@@ -4,12 +4,11 @@ import { buildBookingUrl } from '../../lib/booking'
 
 interface VehicleCardProps {
   vehicle: Vehicle
-  showDemoBadge?: boolean
 }
 
-export function VehicleCard({ vehicle, showDemoBadge = true }: VehicleCardProps) {
+export function VehicleCard({ vehicle }: VehicleCardProps) {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-sm border border-brand-grey/10 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <article className="group flex flex-col overflow-hidden rounded-sm border border-brand-grey/10 bg-brand-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       <div className="relative aspect-[16/10] overflow-hidden bg-brand-grey-lighter">
         <img
           src={vehicle.image}
@@ -17,12 +16,7 @@ export function VehicleCard({ vehicle, showDemoBadge = true }: VehicleCardProps)
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        {showDemoBadge && (
-          <span className="absolute top-3 left-3 rounded-sm bg-brand-black/80 px-2 py-1 text-xs font-semibold text-white">
-            Sample
-          </span>
-        )}
-        <span className="absolute top-3 right-3 rounded-sm bg-brand-orange px-2 py-1 text-xs font-bold text-white">
+        <span className="absolute top-3 right-3 rounded-sm bg-brand-orange px-2 py-1 text-xs font-bold text-brand-white">
           {vehicle.category}
         </span>
       </div>

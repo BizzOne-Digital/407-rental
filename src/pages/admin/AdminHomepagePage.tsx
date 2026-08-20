@@ -68,7 +68,13 @@ export function AdminHomepagePage() {
         <div className="rounded-sm border border-brand-grey/10 p-5">
           <h3 className="mb-4 font-bold text-brand-black">Luxury Rentals Section</h3>
           <div className="space-y-4">
-            <ImageUpload value={form.luxuryImage} onChange={(v) => update('luxuryImage', v)} folder="homepage" label="Section Image" />
+            <ImageUpload value={form.luxuryImage} onChange={(v) => update('luxuryImage', v)} folder="homepage" label="Section Image (fallback poster)" />
+            <Field label="Luxury Section Video URL (MP4 — replace with your own shoot when ready)">
+              <TextInput value={form.luxuryVideo ?? ''} onChange={(v) => update('luxuryVideo', v)} placeholder="https://..." />
+            </Field>
+            <Field label="Video Poster URL">
+              <TextInput value={form.luxuryVideoPoster ?? ''} onChange={(v) => update('luxuryVideoPoster', v)} placeholder="https://..." />
+            </Field>
             <Field label="Title"><TextInput value={form.luxuryTitle} onChange={(v) => update('luxuryTitle', v)} /></Field>
             <Field label="Text"><TextArea value={form.luxuryText} onChange={(v) => update('luxuryText', v)} rows={4} /></Field>
           </div>

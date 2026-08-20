@@ -143,9 +143,9 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
 
   if (status === 'success') {
     return (
-      <div className="rounded-sm border border-green-200 bg-green-50 p-8 text-center" role="status">
-        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-          <svg className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <div className="rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-8 text-center" role="status">
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-brand-orange/10">
+          <svg className="h-8 w-8 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
@@ -167,9 +167,9 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
   }
 
   const inputClass = (field: keyof BookingFormData) =>
-    `w-full rounded-sm border bg-white px-4 py-3 text-sm text-brand-black focus:outline-none ${
+    `w-full rounded-sm border bg-brand-white px-4 py-3 text-sm text-brand-black focus:outline-none ${
       errors[field]
-        ? 'border-red-500 focus:border-red-500'
+        ? 'border-brand-orange focus:border-brand-orange'
         : 'border-brand-grey/20 focus:border-brand-orange'
     }`
 
@@ -184,7 +184,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
       )}
 
       {status === 'error' && (
-        <div className="rounded-sm border border-red-200 bg-red-50 p-4 text-sm text-red-700" role="alert">
+        <div className="rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-4 text-sm text-brand-grey" role="alert">
           Something went wrong. Please try again or call us directly.
         </div>
       )}
@@ -204,7 +204,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             aria-describedby={errors.fullName ? 'fullName-error' : undefined}
           />
           {errors.fullName && (
-            <p id="fullName-error" className="mt-1 text-sm text-red-600" role="alert">
+            <p id="fullName-error" className="mt-1 text-sm text-brand-orange" role="alert">
               {errors.fullName}
             </p>
           )}
@@ -224,7 +224,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             aria-describedby={errors.email ? 'email-error' : undefined}
           />
           {errors.email && (
-            <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">
+            <p id="email-error" className="mt-1 text-sm text-brand-orange" role="alert">
               {errors.email}
             </p>
           )}
@@ -244,7 +244,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             aria-describedby={errors.phone ? 'phone-error' : undefined}
           />
           {errors.phone && (
-            <p id="phone-error" className="mt-1 text-sm text-red-600" role="alert">
+            <p id="phone-error" className="mt-1 text-sm text-brand-orange" role="alert">
               {errors.phone}
             </p>
           )}
@@ -268,7 +268,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             ))}
           </select>
           {errors.rentalType && (
-            <p className="mt-1 text-sm text-red-600" role="alert">
+            <p className="mt-1 text-sm text-brand-orange" role="alert">
               {errors.rentalType}
             </p>
           )}
@@ -292,7 +292,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             ))}
           </select>
           {errors.vehicleCategory && (
-            <p className="mt-1 text-sm text-red-600" role="alert">
+            <p className="mt-1 text-sm text-brand-orange" role="alert">
               {errors.vehicleCategory}
             </p>
           )}
@@ -312,7 +312,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             aria-invalid={!!errors.pickupDate}
           />
           {errors.pickupDate && (
-            <p className="mt-1 text-sm text-red-600" role="alert">
+            <p className="mt-1 text-sm text-brand-orange" role="alert">
               {errors.pickupDate}
             </p>
           )}
@@ -332,7 +332,7 @@ export function BookingForm({ initialData, selectedVehicleName }: BookingFormPro
             aria-invalid={!!errors.returnDate}
           />
           {errors.returnDate && (
-            <p className="mt-1 text-sm text-red-600" role="alert">
+            <p className="mt-1 text-sm text-brand-orange" role="alert">
               {errors.returnDate}
             </p>
           )}

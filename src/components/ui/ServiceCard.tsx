@@ -9,7 +9,7 @@ interface ServiceCardProps {
 export function ServiceCard({ service, variant = 'default' }: ServiceCardProps) {
   if (variant === 'featured') {
     return (
-      <article className="group flex flex-col overflow-hidden rounded-sm border border-brand-grey/10 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      <article className="group flex flex-col overflow-hidden rounded-sm border border-brand-grey/10 bg-brand-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
         <div className="relative aspect-[16/9] overflow-hidden">
           <img
             src={service.image}
@@ -18,7 +18,7 @@ export function ServiceCard({ service, variant = 'default' }: ServiceCardProps) 
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-black/60 to-transparent" />
-          <h3 className="absolute bottom-4 left-4 right-4 text-xl font-bold text-white">{service.title}</h3>
+          <h3 className="absolute bottom-4 left-4 right-4 text-xl font-bold text-brand-white">{service.title}</h3>
         </div>
         <div className="flex flex-1 flex-col p-6">
           <p className="flex-1 text-sm leading-relaxed text-brand-grey-light">{service.shortDescription}</p>
@@ -33,7 +33,7 @@ export function ServiceCard({ service, variant = 'default' }: ServiceCardProps) 
   }
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-sm border border-brand-grey/10 bg-white shadow-sm transition-all duration-300 hover:shadow-lg">
+    <article className="group flex flex-col overflow-hidden rounded-sm border border-brand-grey/10 bg-brand-white shadow-sm transition-all duration-300 hover:shadow-lg">
       <div className="relative aspect-[16/9] overflow-hidden">
         <img
           src={service.image}

@@ -7,21 +7,24 @@ import {
   type FormStatus,
   type FormErrors,
 } from '../../lib/forms'
+import { CONTACT_RENTAL_TYPES } from '../../data/site'
 import { Button } from '../ui/Button'
 
 interface ContactFormData {
   name: string
-  email: string
   phone: string
-  subject: string
+  email: string
+  rentalType: string
+  preferredVehicle: string
   message: string
 }
 
 const defaultFormData: ContactFormData = {
   name: '',
-  email: '',
   phone: '',
-  subject: '',
+  email: '',
+  rentalType: '',
+  preferredVehicle: '',
   message: '',
 }
 
@@ -44,19 +47,19 @@ export function ContactForm() {
   const validate = (): boolean => {
     const newErrors: FormErrors = {}
 
-    const nameError = validateRequired(formData.name, 'Name')
+    const nameError = validateRequired(formData.name, 'Full name')
     if (nameError) newErrors.name = nameError
 
-    const emailError = validateRequired(formData.email, 'Email')
+    const phoneError = validateRequired(formData.phone, 'Phone number')
+    if (phoneError) newErrors.phone = phoneError
+    else if (!validatePhone(formData.phone)) newErrors.phone = 'Please enter a valid phone number.'
+
+    const emailError = validateRequired(formData.email, 'Email address')
     if (emailError) newErrors.email = emailError
     else if (!validateEmail(formData.email)) newErrors.email = 'Please enter a valid email address.'
 
-    if (formData.phone && !validatePhone(formData.phone)) {
-      newErrors.phone = 'Please enter a valid phone number.'
-    }
-
-    const subjectError = validateRequired(formData.subject, 'Subject')
-    if (subjectError) newErrors.subject = subjectError
+    const rentalTypeError = validateRequired(formData.rentalType, 'Type of rental')
+    if (rentalTypeError) newErrors.rentalType = rentalTypeError
 
     const messageError = validateRequired(formData.message, 'Message')
     if (messageError) newErrors.message = messageError
@@ -75,7 +78,8 @@ export function ContactForm() {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        subject: formData.subject,
+        rentalType: formData.rentalType,
+        preferredVehicle: formData.preferredVehicle,
         message: formData.message,
       })
       setStatus('success')
@@ -87,7 +91,7 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="rounded-sm border border-green-200 bg-green-50 p-8 text-center" role="status">
+      <div className="rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-8 text-center" role="status">
         <h3 className="text-xl font-bold text-brand-black">Message Sent</h3>
         <p className="mt-3 text-brand-grey-light">
           Thank you for contacting us. Your message has been sent to our team and we will get back
@@ -101,24 +105,24 @@ export function ContactForm() {
   }
 
   const inputClass = (field: keyof ContactFormData) =>
-    `w-full rounded-sm border bg-white px-4 py-3 text-sm text-brand-black focus:outline-none ${
+    `w-full rounded-sm border bg-brand-white px-4 py-3 text-sm text-brand-black focus:outline-none ${
       errors[field]
-        ? 'border-red-500 focus:border-red-500'
+        ? 'border-brand-orange focus:border-brand-orange'
         : 'border-brand-grey/20 focus:border-brand-orange'
     }`
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
       {status === 'error' && (
-        <div className="rounded-sm border border-red-200 bg-red-50 p-4 text-sm text-red-700" role="alert">
+        <div className="rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-4 text-sm text-brand-grey" role="alert">
           Something went wrong. Please try again or call us directly.
         </div>
       )}
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <div>
+        <div className="sm:col-span-2">
           <label htmlFor="contact-name" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Name <span className="text-brand-orange">*</span>
+            Full Name <span className="text-brand-orange">*</span>
           </label>
           <input
             type="text"
@@ -128,27 +132,12 @@ export function ContactForm() {
             className={inputClass('name')}
             aria-invalid={!!errors.name}
           />
-          {errors.name && <p className="mt-1 text-sm text-red-600" role="alert">{errors.name}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="contact-email" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Email <span className="text-brand-orange">*</span>
-          </label>
-          <input
-            type="email"
-            id="contact-email"
-            value={formData.email}
-            onChange={(e) => updateField('email', e.target.value)}
-            className={inputClass('email')}
-            aria-invalid={!!errors.email}
-          />
-          {errors.email && <p className="mt-1 text-sm text-red-600" role="alert">{errors.email}</p>}
+          {errors.name && <p className="mt-1 text-sm text-brand-orange" role="alert">{errors.name}</p>}
         </div>
 
         <div>
           <label htmlFor="contact-phone" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Phone
+            Phone Number <span className="text-brand-orange">*</span>
           </label>
           <input
             type="tel"
@@ -158,22 +147,62 @@ export function ContactForm() {
             className={inputClass('phone')}
             aria-invalid={!!errors.phone}
           />
-          {errors.phone && <p className="mt-1 text-sm text-red-600" role="alert">{errors.phone}</p>}
+          {errors.phone && <p className="mt-1 text-sm text-brand-orange" role="alert">{errors.phone}</p>}
         </div>
 
         <div>
-          <label htmlFor="contact-subject" className="mb-2 block text-sm font-semibold text-brand-grey">
-            Subject <span className="text-brand-orange">*</span>
+          <label htmlFor="contact-email" className="mb-2 block text-sm font-semibold text-brand-grey">
+            Email Address <span className="text-brand-orange">*</span>
+          </label>
+          <input
+            type="email"
+            id="contact-email"
+            value={formData.email}
+            onChange={(e) => updateField('email', e.target.value)}
+            className={inputClass('email')}
+            aria-invalid={!!errors.email}
+          />
+          {errors.email && <p className="mt-1 text-sm text-brand-orange" role="alert">{errors.email}</p>}
+        </div>
+
+        <div>
+          <label htmlFor="contact-rental-type" className="mb-2 block text-sm font-semibold text-brand-grey">
+            Type of Rental <span className="text-brand-orange">*</span>
+          </label>
+          <select
+            id="contact-rental-type"
+            value={formData.rentalType}
+            onChange={(e) => updateField('rentalType', e.target.value)}
+            className={inputClass('rentalType')}
+            aria-invalid={!!errors.rentalType}
+          >
+            <option value="">Select rental type</option>
+            {CONTACT_RENTAL_TYPES.map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
+          {errors.rentalType && (
+            <p className="mt-1 text-sm text-brand-orange" role="alert">{errors.rentalType}</p>
+          )}
+        </div>
+
+        <div>
+          <label
+            htmlFor="contact-preferred-vehicle"
+            className="mb-2 block text-sm font-semibold text-brand-grey"
+          >
+            Preferred Vehicle
           </label>
           <input
             type="text"
-            id="contact-subject"
-            value={formData.subject}
-            onChange={(e) => updateField('subject', e.target.value)}
-            className={inputClass('subject')}
-            aria-invalid={!!errors.subject}
+            id="contact-preferred-vehicle"
+            value={formData.preferredVehicle}
+            onChange={(e) => updateField('preferredVehicle', e.target.value)}
+            className={inputClass('preferredVehicle')}
+            placeholder="e.g. Toyota RAV4, Luxury SUV"
           />
-          {errors.subject && <p className="mt-1 text-sm text-red-600" role="alert">{errors.subject}</p>}
         </div>
       </div>
 
@@ -189,7 +218,7 @@ export function ContactForm() {
           className={inputClass('message')}
           aria-invalid={!!errors.message}
         />
-        {errors.message && <p className="mt-1 text-sm text-red-600" role="alert">{errors.message}</p>}
+        {errors.message && <p className="mt-1 text-sm text-brand-orange" role="alert">{errors.message}</p>}
       </div>
 
       <Button type="submit" size="lg" fullWidth disabled={status === 'submitting'}>

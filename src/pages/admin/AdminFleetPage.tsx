@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useContent } from '../../context/ContentContext'
+import { DEFAULT_CONTENT } from '../../data/defaults'
 import type { Vehicle } from '../../data/vehicles'
 import { PageHeader, Field, TextInput, TextArea, SaveBar } from '../../components/admin/AdminForm'
 import { ImageUpload } from '../../components/admin/ImageUpload'
@@ -27,6 +28,7 @@ export function AdminFleetPage() {
   const { content, save, saving } = useContent()
   const [vehicles, setVehicles] = useState<Vehicle[]>(content.vehicles)
   const [activeIndex, setActiveIndex] = useState(0)
+  const [syncStatus, setSyncStatus] = useState<string | null>(null)
 
   useEffect(() => {
     setVehicles(content.vehicles)
@@ -51,11 +53,31 @@ export function AdminFleetPage() {
     setActiveIndex(Math.max(0, activeIndex - 1))
   }
 
+  const syncDefaultFleet = async () => {
+    if (
+      !confirm(
+        'Replace all vehicles in the database with the latest default fleet list (33 vehicles)? This cannot be undone.',
+      )
+    ) {
+      return
+    }
+
+    setSyncStatus(null)
+    try {
+      await save('vehicles', DEFAULT_CONTENT.vehicles)
+      setVehicles(DEFAULT_CONTENT.vehicles)
+      setActiveIndex(0)
+      setSyncStatus('Fleet updated to the latest default list.')
+    } catch (err) {
+      setSyncStatus(err instanceof Error ? err.message : 'Failed to update fleet.')
+    }
+  }
+
   if (!current) {
     return (
       <>
         <PageHeader title="Fleet / Vehicles" />
-        <button type="button" onClick={addVehicle} className="rounded-sm bg-brand-orange px-6 py-3 text-sm font-bold text-white">
+        <button type="button" onClick={addVehicle} className="rounded-sm bg-brand-orange px-6 py-3 text-sm font-bold text-brand-white">
           + Add First Vehicle
         </button>
         <SaveBar saving={saving} onSave={() => save('vehicles', vehicles)} />
@@ -67,6 +89,22 @@ export function AdminFleetPage() {
     <>
       <PageHeader title="Fleet / Vehicles" description="Manage your vehicle inventory. Upload photos from your computer." />
 
+      <div className="mb-6 rounded-sm border border-brand-orange/20 bg-brand-orange/5 p-4">
+        <p className="text-sm text-brand-grey">
+          If the website still shows old sample vehicles, click below to save the latest fleet list to
+          the database.
+        </p>
+        <button
+          type="button"
+          onClick={syncDefaultFleet}
+          disabled={saving}
+          className="mt-3 rounded-sm bg-brand-black px-4 py-2 text-sm font-semibold text-brand-white hover:bg-brand-grey disabled:opacity-50"
+        >
+          {saving ? 'Updating...' : 'Update Fleet to Latest List'}
+        </button>
+        {syncStatus && <p className="mt-2 text-sm font-semibold text-brand-orange">{syncStatus}</p>}
+      </div>
+
       <div className="mb-6 flex flex-wrap items-center gap-2">
         {vehicles.map((v, i) => (
           <button
@@ -74,7 +112,7 @@ export function AdminFleetPage() {
             type="button"
             onClick={() => setActiveIndex(i)}
             className={`rounded-sm border px-3 py-1.5 text-sm font-medium ${
-              i === activeIndex ? 'border-brand-orange bg-brand-orange text-white' : 'border-brand-grey/20'
+              i === activeIndex ? 'border-brand-orange bg-brand-orange text-brand-white' : 'border-brand-grey/20'
             }`}
           >
             {v.name}
@@ -120,7 +158,7 @@ export function AdminFleetPage() {
           <input type="checkbox" checked={current.featured ?? false} onChange={(e) => update('featured', e.target.checked)} />
           Show on homepage (Featured)
         </label>
-        <button type="button" onClick={removeVehicle} className="text-sm font-semibold text-red-600 hover:underline">
+        <button type="button" onClick={removeVehicle} className="text-sm font-semibold text-brand-orange hover:underline">
           Delete This Vehicle
         </button>
       </div>

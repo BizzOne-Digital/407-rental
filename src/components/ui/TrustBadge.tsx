@@ -5,7 +5,7 @@ interface TrustBadgeProps {
 
 export function TrustBadge({ icon, label }: TrustBadgeProps) {
   return (
-    <div className="flex items-center gap-2 text-sm font-medium text-white/90">
+    <div className="flex items-center gap-2 text-sm font-medium text-brand-white/90">
       <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-orange/20 text-brand-orange">
         {icon}
       </span>

@@ -16,7 +16,7 @@ export function FAQAccordion({ items, limit }: FAQAccordionProps) {
   }
 
   return (
-    <div className="divide-y divide-brand-grey/10 rounded-sm border border-brand-grey/10 bg-white">
+    <div className="divide-y divide-brand-grey/10 rounded-sm border border-brand-grey/10 bg-brand-white">
       {displayItems.map((item) => {
         const isOpen = openId === item.id
         const panelId = `${baseId}-${item.id}-panel`

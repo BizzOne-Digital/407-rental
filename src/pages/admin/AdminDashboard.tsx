@@ -69,7 +69,7 @@ export function AdminDashboard() {
           type="button"
           onClick={handleInitialize}
           disabled={initializing}
-          className="mt-4 rounded-sm bg-brand-black px-6 py-2.5 text-sm font-semibold text-white hover:bg-brand-grey disabled:opacity-50"
+          className="mt-4 rounded-sm bg-brand-black px-6 py-2.5 text-sm font-semibold text-brand-white hover:bg-brand-grey disabled:opacity-50"
         >
           {initializing ? 'Initializing...' : 'Initialize Default Content'}
         </button>

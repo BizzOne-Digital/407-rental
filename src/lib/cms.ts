@@ -1,5 +1,6 @@
 import { requireSupabase, isSupabaseConfigured, supabase } from './supabase'
 import { DEFAULT_CONTENT, CMS_DOCUMENT_MAP } from '../data/defaults'
+import { isLegacyFleet } from '../data/vehicles'
 import type { CmsContent, CmsDocumentId } from '../types/cms'
 
 const ALL_DOC_IDS = Object.keys(CMS_DOCUMENT_MAP) as CmsDocumentId[]
@@ -26,7 +27,41 @@ export async function fetchAllContent(): Promise<CmsContent> {
     }
   }
 
+  if (isLegacyFleet(merged.vehicles)) {
+    merged.vehicles = structuredClone(DEFAULT_CONTENT.vehicles)
+  }
+
+  if (isLegacySiteContact(merged)) {
+    merged.site.phone = DEFAULT_CONTENT.site.phone
+    merged.site.location = DEFAULT_CONTENT.site.location
+    merged.site.social = DEFAULT_CONTENT.site.social
+    merged.hero.badge = DEFAULT_CONTENT.hero.badge
+    merged.hero.secondaryCta = DEFAULT_CONTENT.hero.secondaryCta
+    merged.about.gtaText = DEFAULT_CONTENT.about.gtaText
+  }
+
+  if (!merged.hero.video) {
+    merged.hero.video = DEFAULT_CONTENT.hero.video
+    merged.hero.videoPoster = DEFAULT_CONTENT.hero.videoPoster
+  }
+
+  if (!merged.homepage.luxuryVideo) {
+    merged.homepage.luxuryVideo = DEFAULT_CONTENT.homepage.luxuryVideo
+    merged.homepage.luxuryVideoPoster = DEFAULT_CONTENT.homepage.luxuryVideoPoster
+  }
+
   return merged
+}
+
+function isLegacySiteContact(content: CmsContent): boolean {
+  return (
+    (content.site.phone.includes('777-5555') && !content.site.phone.startsWith('343')) ||
+    content.site.location === 'Scarborough, Ontario' ||
+    content.site.location === '128 Manville Rd, Unit 15' ||
+    content.hero.badge.includes('Manville Rd') ||
+    content.hero.badge.includes('Scarborough, Ontario') ||
+    content.hero.secondaryCta.includes('777-5555')
+  )
 }
 
 export async function saveDocument<T>(id: CmsDocumentId, data: T): Promise<void> {

@@ -35,15 +35,15 @@ type ButtonProps = ButtonAsButton | ButtonAsLink | ButtonAsRouterLink
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-brand-orange text-white hover:bg-brand-orange/90 border border-brand-orange shadow-sm',
+    'bg-brand-orange text-brand-white hover:bg-brand-orange/90 border border-brand-orange shadow-sm',
   secondary:
-    'bg-brand-black text-white hover:bg-brand-grey border border-brand-black',
+    'bg-brand-black text-brand-white hover:bg-brand-grey border border-brand-black',
   outline:
-    'bg-transparent text-brand-black border border-brand-black hover:bg-brand-black hover:text-white',
+    'bg-transparent text-brand-black border border-brand-black hover:bg-brand-black hover:text-brand-white',
   ghost:
     'bg-transparent text-brand-grey hover:text-brand-orange border border-transparent',
   white:
-    'bg-white text-brand-black hover:bg-brand-grey-lighter border border-white',
+    'bg-brand-white text-brand-black hover:bg-brand-grey-lighter border border-brand-white',
 }
 
 const sizeStyles: Record<ButtonSize, string> = {

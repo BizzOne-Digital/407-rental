@@ -1,5 +1,6 @@
 import { Button } from '../ui/Button'
 import { TrustBadge } from '../ui/TrustBadge'
+import { BackgroundVideo } from '../ui/BackgroundVideo'
 import { useContent } from '../../context/ContentContext'
 import { useSite } from '../../hooks/useSite'
 
@@ -35,11 +36,15 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[85vh] items-center overflow-hidden bg-brand-black">
       <div className="absolute inset-0">
-        <img
-          src={hero.image}
-          alt="Premium vehicle on scenic road"
-          className="h-full w-full object-cover"
-        />
+        {hero.video ? (
+          <BackgroundVideo src={hero.video} poster={hero.videoPoster || hero.image} />
+        ) : (
+          <img
+            src={hero.image}
+            alt="Premium vehicle on scenic road"
+            className="h-full w-full object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-black/90 via-brand-black/70 to-brand-black/40" />
       </div>
 
@@ -48,10 +53,10 @@ export function Hero() {
           <span className="mb-4 inline-block text-xs font-bold uppercase tracking-widest text-brand-orange">
             {hero.badge}
           </span>
-          <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-brand-white sm:text-5xl lg:text-6xl">
             {hero.headline}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-white/85 sm:text-xl">
             {hero.subheading}
           </p>
 

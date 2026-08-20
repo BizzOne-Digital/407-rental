@@ -1,20 +1,34 @@
 export const SITE = {
   name: '407 Auto Rentals',
   tagline: 'Your trusted insurance replacement and car rental partner in the GTA.',
-  phone: '(343) 777-5555',
-  phoneHref: 'tel:+13437775555',
+  phone: '416-755-3723',
+  phoneSecondary: '343-777-5555',
+  emergencyPhone: '343-777-5555',
   // ▼ ALL FORM SUBMISSIONS ARE SENT TO THIS EMAIL — change it here ▼
   email: '407autorentals@gmail.com',
   // ▲ Update the address above to change where booking & contact forms are delivered ▲
   emailHref: 'mailto:407autorentals@gmail.com',
-  location: 'Scarborough, Ontario',
+  location: '128 Manville Road, Unit 15',
+  addressLine2: 'Scarborough, ON M1L 4J5',
+  addressCountry: 'Canada',
+  businessHours: 'Monday – Sunday: 24 hours',
   serviceArea: 'Greater Toronto Area',
-  social: '407Autorentals',
+  social: '@407autorentals',
+  instagramUrl: 'https://www.instagram.com/407autorentals/',
+  mapsQuery: '128 Manville Road, Unit 15, Scarborough, ON M1L 4J5, Canada',
   description:
-    '407 Auto Rentals is a trusted vehicle rental company based in Scarborough, Ontario, proudly serving the Greater Toronto Area. We specialize in insurance replacement rentals, direct billing to major insurance companies, and affordable retail vehicle rentals. Our diverse fleet includes economy cars, hybrid vehicles, SUVs, luxury vehicles, and pickup trucks to meet the needs of every customer.',
+    '407 Auto Rentals is a trusted vehicle rental company at 128 Manville Road, Unit 15, Scarborough, proudly serving the Greater Toronto Area. We specialize in insurance replacement rentals, direct billing to major insurance companies, and affordable retail vehicle rentals. Our diverse fleet includes economy cars, hybrid vehicles, SUVs, luxury vehicles, and pickup trucks to meet the needs of every customer.',
   descriptionExtended:
     'We are committed to providing fast, reliable, and hassle-free rental solutions with exceptional customer service. Whether you need a replacement vehicle after an accident, a rental for business travel, or a vehicle for personal use, our experienced team will help you find the right vehicle at a competitive price. At 407 Auto Rentals, we understand that being without a vehicle can be stressful. That\'s why we focus on quick approvals, flexible rental terms, transparent pricing, and a seamless rental experience. Our goal is to get every customer back on the road safely and efficiently while delivering the highest level of professionalism and service.',
 } as const
+
+export const CONTACT_RENTAL_TYPES = [
+  'Insurance Replacement',
+  'Retail',
+  'Corporate',
+] as const
+
+export type ContactRentalType = (typeof CONTACT_RENTAL_TYPES)[number]
 
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },

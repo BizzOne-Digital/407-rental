@@ -22,6 +22,8 @@ export interface HeroContent {
   headline: string
   subheading: string
   image: string
+  video?: string
+  videoPoster?: string
   primaryCta: string
   secondaryCta: string
   trustBadges: { label: string }[]
@@ -42,6 +44,8 @@ export interface HomepageSections {
   luxuryTitle: string
   luxuryText: string
   luxuryImage: string
+  luxuryVideo?: string
+  luxuryVideoPoster?: string
   howItWorksTitle: string
   howItWorksSubtitle: string
   testimonialsTitle: string

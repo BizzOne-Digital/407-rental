@@ -18,8 +18,8 @@ export function ServicesPage() {
     <>
       <section className="bg-brand-black py-16">
         <div className="container-wide px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Our Rental Services</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
+          <h1 className="text-3xl font-bold text-brand-white sm:text-4xl lg:text-5xl">Our Rental Services</h1>
+          <p className="mt-4 max-w-2xl text-lg text-brand-white/80">
             Comprehensive vehicle rental solutions for insurance replacement, retail, corporate, and
             luxury needs across the Greater Toronto Area.
           </p>

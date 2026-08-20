@@ -22,7 +22,7 @@ export function SectionHeading({
       )}
       <h2
         className={`text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl ${
-          light ? 'text-white' : 'text-brand-black'
+          light ? 'text-brand-white' : 'text-brand-black'
         }`}
       >
         {title}
@@ -31,7 +31,7 @@ export function SectionHeading({
         <p
           className={`mt-4 max-w-3xl text-lg leading-relaxed ${
             align === 'center' ? 'mx-auto' : ''
-          } ${light ? 'text-white/80' : 'text-brand-grey-light'}`}
+          } ${light ? 'text-brand-white/80' : 'text-brand-grey-light'}`}
         >
           {subtitle}
         </p>

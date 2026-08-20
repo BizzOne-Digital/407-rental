@@ -1,4 +1,5 @@
 import { SITE, WHY_CHOOSE_US, HOW_IT_WORKS } from './site'
+import { PLACEHOLDER_VIDEOS } from './media'
 import { vehicles } from './vehicles'
 import { services } from './services'
 import { testimonials } from './testimonials'
@@ -20,13 +21,15 @@ export const DEFAULT_CONTENT: CmsContent = {
     descriptionExtended: SITE.descriptionExtended,
   },
   hero: {
-    badge: 'Scarborough, Ontario • Greater Toronto Area',
+    badge: '128 Manville Road, Unit 15 • Greater Toronto Area',
     headline: 'Your Trusted Insurance Replacement & Car Rental Partner in the GTA',
     subheading:
       'Whether you need a replacement vehicle after an accident or a rental for business or leisure, 407 Auto Rentals offers fast approvals, direct insurance billing, competitive rates, and a premium fleet of economy, hybrid, SUV, and luxury vehicles across the Greater Toronto Area.',
     image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=80',
+    video: PLACEHOLDER_VIDEOS.hero.src,
+    videoPoster: PLACEHOLDER_VIDEOS.hero.poster,
     primaryCta: 'Book Your Rental',
-    secondaryCta: 'Call (343) 777-5555',
+    secondaryCta: 'Call 416-755-3723',
     trustBadges: [
       { label: 'Fast Approvals' },
       { label: 'Direct Insurance Billing' },
@@ -55,6 +58,8 @@ export const DEFAULT_CONTENT: CmsContent = {
     luxuryText:
       'Experience premium comfort and style with our luxury vehicle rental options. Perfect for business travel, special occasions, and customers who demand the best.',
     luxuryImage: 'https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1920&q=80',
+    luxuryVideo: PLACEHOLDER_VIDEOS.luxury.src,
+    luxuryVideoPoster: PLACEHOLDER_VIDEOS.luxury.poster,
     howItWorksTitle: 'How It Works',
     howItWorksSubtitle: 'Getting a rental vehicle is easy with 407 Auto Rentals.',
     testimonialsTitle: 'What Our Customers Say',
@@ -78,7 +83,7 @@ export const DEFAULT_CONTENT: CmsContent = {
       'We understand the stress of being without a vehicle after an accident. Our team specializes in insurance replacement rentals, offering quick request processing, flexible terms, and direct billing options where applicable.',
     gtaTitle: 'Serving the GTA',
     gtaText:
-      '407 Auto Rentals is located in Scarborough, Ontario and serves customers throughout the Greater Toronto Area.',
+      '407 Auto Rentals is located at 128 Manville Road, Unit 15, Scarborough, ON M1L 4J5 and serves customers throughout the Greater Toronto Area.',
     heroImage: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1600&q=80',
   },
   vehicles: [...vehicles],
