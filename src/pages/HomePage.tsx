@@ -10,7 +10,6 @@ import { FAQAccordion } from '../components/ui/FAQAccordion'
 import { CTASection } from '../components/ui/CTASection'
 import { Button } from '../components/ui/Button'
 import { BackgroundVideo } from '../components/ui/BackgroundVideo'
-import { AutoRepairPartnerSection } from '../components/home/AutoRepairPartnerSection'
 
 export function HomePage() {
   const { content, loading } = useContent()
@@ -142,8 +141,6 @@ export function HomePage() {
           </div>
         </div>
       </section>
-
-      <AutoRepairPartnerSection />
 
       {/* Direct Billing Section */}
       <section className="section-padding bg-brand-black">
