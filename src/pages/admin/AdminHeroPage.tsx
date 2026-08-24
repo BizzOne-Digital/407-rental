@@ -32,7 +32,7 @@ export function AdminHeroPage() {
 
       <div className="space-y-5">
         <ImageUpload value={form.image} onChange={(v) => update('image', v)} folder="hero" label="Hero Background Image (fallback poster)" />
-        <Field label="Hero Background Video URL (MP4 — replace with your own footage when ready)">
+        <Field label="Hero Background Video URL (MP4 — Cadillac / luxury rental display)">
           <TextInput value={form.video ?? ''} onChange={(v) => update('video', v)} placeholder="https://..." />
         </Field>
         <Field label="Video Poster URL (shown while video loads)">

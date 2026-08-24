@@ -69,7 +69,7 @@ export function AdminHomepagePage() {
           <h3 className="mb-4 font-bold text-brand-black">Luxury Rentals Section</h3>
           <div className="space-y-4">
             <ImageUpload value={form.luxuryImage} onChange={(v) => update('luxuryImage', v)} folder="homepage" label="Section Image (fallback poster)" />
-            <Field label="Luxury Section Video URL (MP4 — replace with your own shoot when ready)">
+            <Field label="Luxury Section Video URL (MP4 — Cadillac / luxury SUV display)">
               <TextInput value={form.luxuryVideo ?? ''} onChange={(v) => update('luxuryVideo', v)} placeholder="https://..." />
             </Field>
             <Field label="Video Poster URL">

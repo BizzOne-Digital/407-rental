@@ -1,5 +1,5 @@
 import { SITE, WHY_CHOOSE_US, HOW_IT_WORKS } from './site'
-import { PLACEHOLDER_VIDEOS } from './media'
+import { PLACEHOLDER_VIDEOS, CADILLAC_POSTER } from './media'
 import { vehicles } from './vehicles'
 import { services } from './services'
 import { testimonials } from './testimonials'
@@ -25,9 +25,9 @@ export const DEFAULT_CONTENT: CmsContent = {
     headline: 'Your Trusted Insurance Replacement & Car Rental Partner in the GTA',
     subheading:
       'Whether you need a replacement vehicle after an accident or a rental for business or leisure, 407 Auto Rentals offers fast approvals, direct insurance billing, competitive rates, and a premium fleet of economy, hybrid, SUV, and luxury vehicles across the Greater Toronto Area.',
-    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=80',
+    image: CADILLAC_POSTER,
     video: PLACEHOLDER_VIDEOS.hero.src,
-    videoPoster: PLACEHOLDER_VIDEOS.hero.poster,
+    videoPoster: CADILLAC_POSTER,
     primaryCta: 'Book Your Rental',
     secondaryCta: 'Call 416-755-3723',
     trustBadges: [
@@ -57,7 +57,7 @@ export const DEFAULT_CONTENT: CmsContent = {
     luxuryTitle: 'Drive Something Exceptional',
     luxuryText:
       'Experience premium comfort and style with our luxury vehicle rental options. Perfect for business travel, special occasions, and customers who demand the best.',
-    luxuryImage: 'https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1920&q=80',
+    luxuryImage: CADILLAC_POSTER,
     luxuryVideo: PLACEHOLDER_VIDEOS.luxury.src,
     luxuryVideoPoster: PLACEHOLDER_VIDEOS.luxury.poster,
     howItWorksTitle: 'How It Works',

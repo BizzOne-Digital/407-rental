@@ -1,6 +1,7 @@
 import { requireSupabase, isSupabaseConfigured, supabase } from './supabase'
 import { DEFAULT_CONTENT, CMS_DOCUMENT_MAP } from '../data/defaults'
 import { isLegacyFleet } from '../data/vehicles'
+import { isLegacyVideo } from '../data/media'
 import type { CmsContent, CmsDocumentId } from '../types/cms'
 
 const ALL_DOC_IDS = Object.keys(CMS_DOCUMENT_MAP) as CmsDocumentId[]
@@ -40,14 +41,16 @@ export async function fetchAllContent(): Promise<CmsContent> {
     merged.about.gtaText = DEFAULT_CONTENT.about.gtaText
   }
 
-  if (!merged.hero.video) {
+  if (isLegacyVideo(merged.hero.video)) {
     merged.hero.video = DEFAULT_CONTENT.hero.video
     merged.hero.videoPoster = DEFAULT_CONTENT.hero.videoPoster
+    merged.hero.image = DEFAULT_CONTENT.hero.image
   }
 
-  if (!merged.homepage.luxuryVideo) {
+  if (isLegacyVideo(merged.homepage.luxuryVideo)) {
     merged.homepage.luxuryVideo = DEFAULT_CONTENT.homepage.luxuryVideo
     merged.homepage.luxuryVideoPoster = DEFAULT_CONTENT.homepage.luxuryVideoPoster
+    merged.homepage.luxuryImage = DEFAULT_CONTENT.homepage.luxuryImage
   }
 
   return merged
